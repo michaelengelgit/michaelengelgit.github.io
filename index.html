@@ -1,57 +1,80 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Michael Engel</title>
-    <meta charsetup="UTF-8">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
-    <h1>Stuff:</h1>
-    <p>Here are a few of my publications:</p>
 
-    <ul>
-        <li><a href="papers/mea/main.html">MEA</a></li>
-    </ul>
+<header>
+    <div class="header-content">
+        <div class="header-info">
+            <h1>Michael Engel</h1>
+            <p>Some links:</p>
+        </div>
+        <div class="header-links">
+            <a class="link" href="https://app.radicle.xyz/nodes/seed.radicle.xyz"><i class="fas fa-cubes"></i> Git</a>
+        </div>
+    </div>
+</header>
 
-    <p>Here are my dotfiles (deprecated):</p>
-    <ul>
-        <li><a href="https://github.com/michaelengelgit/dotfiles.git">Dotfiles</a></li>
-    </ul>
-
-    <p>Here are a few projects of mine:</p>
-    <ul>
-        <li><a href="https://github.com/dylangoepel/volker.git">Volker</a></li>
-    </ul>
-
-    <p>Here are some cool projects:</p>
-    <ul>
-        <li><a href="https://radicle.xyz">Radicle</a></li>
-        <li><a href="https://torproject.org">Tor</a></li>
-        <li><a href="https://getsession.org/">Session</a></li>
-    </ul>
-
-    <br>
-
-    <h1>Links:</h1>
-    <ul>
-        <li>Public git repository (deprecated): <a href="https://github.com/michaelengelgit">Github</a></li>
-    </ul>
-
-    <br>
-
-    <h1>Contact:</h1>
-    <ul>
-        <li>Email: michael@thisdomain</li>
-    </ul>
+<div class="container">
+    <div class="category">
+        <h2><i class="fas fa-code icon"></i>Dotfiles</h2>
+        <section class="paper item" onclick="window.location.href='https://github.com/michaelengelgit/dotfiles.git'">
+            <p>[Deprecated] My dotfiles.</p>
+        </section>
+    </div>
+    <div class="category">
+        <h2><i class="fas fa-file-alt icon"></i>Papers</h2>
+        <section class="paper item" onclick="window.location.href='papers/mea/main.html'">
+            <h2>MEA</h2>
+            <p>MEA is a secure symmetric block cipher algorithm.</p>
+        </section>
+    </div>
 
 
-    <p style=" position: absolute; bottom: 0; left: 0; width: 100%; text-align: center;">
-        Copyright 2024 &copy; Michael Engel
-    </p>
+    <div class="category">
+        <h2><i class="fas fa-project-diagram icon"></i>PROJECTS</h2>
+        <section class="project item" onclick="window.location.href='https://github.com/dylangoepel/volker.git'">
+            <h2>VOLKER</h2>
+            <p>Volker is a proof-of-concept P2P-botnet utilizing asymmetric cryptography. It was created for educational purposes only, and should be understood as a fun little freetime project only.</p>
+        </section>
 
+        <section class="project item" onclick="window.location.href='https://github.com/michaelengelnet'">
+            <h2>Zeus</h2>
+            <p>An encryption wrapper for mea with extra obfuscation options.</p>
+        </section>
+    </div>
+
+    <div class="category">
+        <h2><i class="fas fa-external-link-alt icon"></i>Cool projects</h2>
+        <section class="other-project item">
+            <h2>Radicle</h2>
+            <p>Radicle is an open source, peer-to-peer code collaboration stack. It leverages Git’s architecture combined with cryptography and a gossip protocol to enable a fully sovereign developer network.</p>
+            <a class="link" href="https://radicle.xyz/">More information</a>
+        </section>
+        <section class="other-project item">
+            <h2>Session</h2>
+            <p>Session is an end-to-end encrypted messenger that minimises sensitive metadata, designed and built for people who want absolute privacy and freedom from any form of surveillance.</p>
+            <a class="link" href="https://getsession.org/">More information</a>
+        </section>
+        <section class="other-project item">
+            <h2>TOR</h2>
+            <p>Tor protects your privacy on the internet by hiding the connection between your Internet address and the services you use.</p>
+            <a class="link" href="https://torproject.org/">More information</a>
+        </section>
+
+    </div>
+
+    <div class="contact">
+        <p>Contact:</p>
+        <a class="email" href="mailto:michael@michaelengel.net">michael@thisdomain</a>
+    </div>
+</div>
 
 </body>
-
 </html>

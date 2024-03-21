@@ -1,6 +1,84 @@
-html, body {
-    width: 35em;
-    margin: 0 auto;
-    font-family: Tahoma, Verdana, Arial, sans-serif;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0d10;
+    color: #f9f9fb;
+    margin: 0;
+    padding: 0;
 }
 
+header {
+    background-color: #14151a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.category {
+    margin-bottom: 30px;
+}
+
+.category h2 {
+    color: #f2f2f2;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.item {
+    background-color: #24252d;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item h2 {
+    color: #f2f2f2;
+    font-size: 24px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.item h2:hover {
+    color: #ffffff;
+}
+
+.item p {
+    color: #9b9bb1;
+}
+
+.item .link {
+    color: #f2f2f2;
+    text-decoration: none;
+}
+
+.item .link:hover {
+    text-decoration: underline;
+}
+
+.icon {
+    color: #ffffff;
+    margin-right: 5px;
+}
+
+.contact {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.email {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.email:hover {
+    text-decoration: underline;
+}
