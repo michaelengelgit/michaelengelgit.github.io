@@ -4,110 +4,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Michael Engel</title>
+    <title>Michael Engel - Home</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-
     <header>
-        <div class="header-content">
-            <div class="header-info">
-                <h1>Michael Engel</h1>
-                <p>Some links:</p>
-            </div>
-            <div class="header-links">
-                <a class="link" href="https://github.com/michaelengelgit"><i class="fa fa-github"></i> Github</a>
-            </div>
+        <div class="container">
+            <h1>Michael Engel</h1>
+            <nav>
+                <ul>
+                    <li><a href="papers.html" class="nav-link">Publications</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <div class="container">
-        <div class="category">
-            <h2><i class="fas fa-file-alt icon"></i>Papers</h2>
-            <section class="paper item" onclick="window.location.href='papers/mea/main.html'">
-                <h2>MEA</h2>
-                <p>MEA is a secure symmetric block cipher algorithm</p>
-                <a href="pdfs/mea.pdf" class="pdf-btn" target="_blank" onclick="event.stopPropagation();">
-                    <i class="fas fa-file-pdf"></i> PDF
-                </a>
-            </section>
-        </div>
-        <div class="category">
-            <h2><i class="fas fa-code icon"></i>PROJECTS</h2>
-
-            <section class="paper item"
-                onclick="window.location.href='https://github.com/michaelengelgit/dotfiles.git'">
-                <h2>Dotfiles</h2>
-                <p>My dotfiles</p>
-            </section>
-
-            <section class="project item" onclick="window.location.href='https://github.com/michaelengelgit/zeus.git'">
-                <h2>Zeus</h2>
-                <p>An encryption wrapper for mea with extra obfuscation options</p>
-            </section>
-
-            <section class="project item"
-                onclick="window.location.href='https://github.com/michaelengelgit/passmgr.git'">
-                <h2>Passmgr</h2>
-                <p>My personal password manager</p>
-            </section>
-
-            <section class="project item"
-                onclick="window.location.href='https://github.com/michaelengelgit/spaceinvaders.git'">
-                <h2>Space Invaders</h2>
-                <p>A C/C++ implementation with multithreading and customizable settings</p>
-            </section>
-
-            <section class="project item" onclick="window.location.href='https://github.com/michaelengelgit/gfos.git'">
-                <h2>Gfos Chat</h2>
-                <p>A secure chat implemented in java</p>
-            </section>
-
-            <section class="project item"
-                onclick="window.location.href='https://github.com/michaelengelgit/soteria.git'">
-                <h2>Soteria</h2>
-                <p>An AC System for authentication (designed for the zymbit scm)</p>
-            </section>
-
-
-            <section class="project item" onclick="window.location.href='https://github.com/dylangoepel/volker.git'">
-                <h2>Volker</h2>
-                <p>Volker is a proof-of-concept P2P-botnet utilizing asymmetric cryptography</p>
-            </section>
-        </div>
-
-        <div class="category">
-            <h2><i class="fas fa-external-link-alt icon"></i>Cool projects</h2>
-            <section class="other-project item">
-                <h2>Radicle</h2>
-                <p>Radicle is an open source, peer-to-peer code collaboration stack. It leverages Git’s architecture
-                    combined with cryptography and a gossip protocol to enable a fully sovereign developer network</p>
-                <a class="link" href="https://radicle.xyz/">More information</a>
-            </section>
-            <section class="other-project item">
-                <h2>Session</h2>
-                <p>Session is an end-to-end encrypted messenger that minimises sensitive metadata, designed and built
-                    for people who want absolute privacy and freedom from any form of surveillance</p>
-                <a class="link" href="https://getsession.org/">More information</a>
-            </section>
-            <section class="other-project item">
-                <h2>TOR</h2>
-                <p>Tor protects your privacy on the internet by hiding the connection between your Internet address and
-                    the services you use</p>
-                <a class="link" href="https://torproject.org/">More information</a>
-            </section>
-
-        </div>
-
-        <div class="contact">
-            <p>Contact:</p>
-            <a class="email" href="mailto:michael@michaelengel.net">michael@thisdomain</a>
+        <h2>Latest Activities</h2>
+        <div class="activity-list">
+            <article class="activity-item">
+                <h3>Website Update !</h3>
+                <p>This website has been modified.</p>
+            </article>
+            <hr>
+            <article class="activity-item">
+                <h3>New Publication on MEA</h3>
+                <p>I have just published a new paper discussing the MEA algorithm and its secure symmetric block cipher
+                    capabilities.</p>
+                <a href="papers.html" class="btn view">View Publication</a>
+            </article>
+            <hr>
         </div>
     </div>
-
 </body>
 
 </html>
