@@ -103,6 +103,10 @@ h2 {
 }
 
 @media (prefers-color-scheme: dark) {
+    header{
+        background-color: #04040b;
+        color: #f5f5f5;
+    }
     body {
         background-color: #121314;
         color: #f5f5f5;
@@ -120,5 +124,8 @@ h2 {
     }
     .btn {
         background-color: #0088ff;
+    }
+    .btn-view{
+        background-color: #121314;
     }
 }
