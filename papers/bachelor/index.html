@@ -1,0 +1,2332 @@
+<!DOCTYPE HTML>
+
+<!--Converted with LaTeX2HTML 2025 (Released January 1, 2025) -->
+<HTML lang="en">
+<HEAD>
+<TITLE>bachelor-paper</TITLE>
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+<META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2025">
+
+<LINK REL="STYLESHEET" HREF="bachelorarbeit_michael_engel.css">
+
+</HEAD>
+
+<BODY >
+
+<P>
+
+
+<P>
+<DIV class="CENTER">
+<IMG
+  STYLE="height: 10.32ex; vertical-align: 0.04ex; " SRC="img1.png"
+ ALT="\includegraphics[width=7cm]{.././img/logo.pdf}">
+</DIV>
+<P>
+<DIV class="CENTER">
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV class="CENTER"><SPAN CLASS="XLARGE"><SPAN  CLASS="textbf">Entwicklung eines DokuWiki-Plugins für tabellenbasierte Benutzerinteraktionen 
+<BR>
+in einem DIN EN ISO 13485 konformem Qualitätsmanagementsystem</SPAN>
+<BR>
+<BR>
+<BR>
+<BR></SPAN>
+</DIV>
+<P>
+<DIV class="CENTER">Bachelorarbeit
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV class="CENTER">vorgelegt von:
+
+</DIV>
+<P>
+<DIV class="CENTER"> <SPAN CLASS="LARGE"><SPAN  CLASS="textbf">Michael Engel</SPAN>
+<BR>
+<BR>
+<BR></SPAN>
+</DIV>
+<P>
+<DIV class="CENTER">Matrikelnummer: 537882
+<BR>
+</DIV>
+<P>
+<DIV class="CENTER">Studiengang: Informatik
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV class="CENTER">
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV class="CENTER">Erstgutachterin
+
+</DIV>
+<P>
+<DIV class="CENTER"><SPAN CLASS="LARGE"><SPAN  CLASS="textbf">JProf. Dr. Tanya Braun</SPAN>
+<BR>
+<BR>
+<BR></SPAN>
+</DIV>
+<P>
+<DIV class="CENTER">Zweitgutachter
+
+</DIV>
+<P>
+<DIV class="CENTER"><SPAN CLASS="LARGE"><SPAN  CLASS="textbf">Dr. rer. nat. Tobias Brix</SPAN>
+<BR>
+<BR>
+<BR></SPAN>
+</DIV>
+<P>
+<DIV class="CENTER">
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</DIV>
+<P>
+<DIV class="CENTER">Münster, November 9, 2025
+
+</DIV>
+
+<P>
+
+<P>
+
+<H1><A ID="SECTION00100000000000000000">
+Abstract</A>
+</H1>
+Im Kontext moderner Qualitätsmanagementsysteme, vor allem in stark regulierten Sektoren wie der Medizintechnik,
+repräsentiert die dokumentierte Schulung von Mitarbeitenden oder Auszubildenden eine grundlegende Anforderung gemäß der Norm ISO 13485.
+Diese Arbeit hat zum Ziel, die Konzeption, Entwicklung sowie die Verifizierung von zwei DokuWiki-Plugins zu
+realisieren, die den Nachweis solcher Schulungsmaßnahmen systematisch, benutzerfreundlich und normkonform ermöglichen.
+<BR>
+<BR>
+Die Plugins erweitern die Benutzeroberfläche von DokuWiki um verschiedene Interaktionsfunktionalitäten in Tabellenform.
+Dies erfolgt durch eine Kombination aus anwendungsseitiger Authentifizierung und benutzerseitiger Ereigniserfassung und gewährleistet so eine
+integrative und medienbruchfreie Lösung innerhalb der bestehenden Wissensplattform.
+<BR>
+<BR>
+Die Resultate zeigen deutlich, dass die Entwicklung und Nutzung von freien Softwarelösungen einen wichtigen Beitrag zur Digitalisierung leisten können - vor allem bei Organisationen und Instituten,
+die auf ressourcenschonende Arbeitsweisen setzen.
+Die vorliegende Arbeit verdeutlicht somit die Leistungsfähigkeit modularer, offener Systeme und gibt
+Impulse für die nachhaltige Entwicklung praxisorientierter Qualitätsmanagementwerkzeuge.
+
+<P>
+Contentstoc
+<BR>
+
+<H2><A ID="SECTION00200000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL CLASS="TofC">
+<LI><A ID="tex2html101"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00300000000000000000">List of Figures</A>
+<LI><A ID="tex2html102"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00400000000000000000">List of Tables</A>
+<LI><A ID="tex2html103"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00500000000000000000">Einleitung</A>
+<LI><A ID="tex2html104"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00600000000000000000">Grundlagen</A>
+<UL>
+<LI><A ID="tex2html105"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00610000000000000000">Wiki-Systeme</A>
+<LI><A ID="tex2html106"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00620000000000000000">DokuWiki</A>
+<UL>
+<LI><A ID="tex2html107"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00621000000000000000">DokuWiki-Syntax</A>
+</UL>
+<LI><A ID="tex2html108"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00630000000000000000">Plugin-Mechanismus</A>
+<UL>
+<LI><A ID="tex2html109"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00631000000000000000">Allgemeines Konzept und Funktionsweise</A>
+<LI><A ID="tex2html110"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00632000000000000000">Plugin-Mechanismus im DokuWiki</A>
+</UL>
+<LI><A ID="tex2html111"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00640000000000000000">Normen und Anforderungen</A>
+<LI><A ID="tex2html112"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00650000000000000000">Qualitätsmanagement in der Medizintechnik</A>
+<LI><A ID="tex2html113"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00660000000000000000">Anforderungen an Software im regulierten Umfeld</A>
+<LI><A ID="tex2html114"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00670000000000000000">Zieldefinition</A>
+</UL>
+<BR>
+<LI><A ID="tex2html115"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00700000000000000000">Ergebnisse</A>
+<UL>
+<LI><A ID="tex2html116"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00710000000000000000">Zielsetzung der Implementierung</A>
+<LI><A ID="tex2html117"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00720000000000000000">Aufbau</A>
+<UL>
+<LI><A ID="tex2html118"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00721000000000000000">Dateistruktur-Plugins</A>
+<LI><A ID="tex2html119"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00722000000000000000">Dateistruktur TableLib-Bibliothek</A>
+</UL>
+<LI><A ID="tex2html120"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00730000000000000000">Technologien und eingesetzte Bibliotheken</A>
+<LI><A ID="tex2html121"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00740000000000000000">Funktionsweise</A>
+<UL>
+<LI><A ID="tex2html122"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00741000000000000000">TableLib-Bibliothek</A>
+<LI><A ID="tex2html123"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00742000000000000000">Plugins</A>
+</UL>
+<LI><A ID="tex2html124"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00750000000000000000">Validierung der Erweiterungen</A>
+<LI><A ID="tex2html125"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00760000000000000000">Beispielhafte Nutzung</A>
+<LI><A ID="tex2html126"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00770000000000000000">Modifizierbarkeit und Anpassung</A>
+<LI><A ID="tex2html127"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00780000000000000000">Sicherheit und Eingrenzung der Funktionen</A>
+</UL>
+<BR>
+<LI><A ID="tex2html128"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00800000000000000000">Diskussion</A>
+<UL>
+<LI><A ID="tex2html129"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00810000000000000000">Designentscheidungen</A>
+<UL>
+<LI><A ID="tex2html130"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00811000000000000000">Technologische Entscheidungen</A>
+<LI><A ID="tex2html131"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00812000000000000000">Vorteile der Architektur</A>
+</UL>
+<LI><A ID="tex2html132"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00820000000000000000">Limitationen</A>
+<LI><A ID="tex2html133"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00830000000000000000">Erweiterungspotenziale</A>
+<LI><A ID="tex2html134"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00840000000000000000">Alternativen und Related Work</A>
+<UL>
+<LI><A ID="tex2html135"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00841000000000000000">Verwandte Arbeiten</A>
+<LI><A ID="tex2html136"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00842000000000000000">Vergleich: Open-Source und kommerziell</A>
+</UL>
+<LI><A ID="tex2html137"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00850000000000000000">Reflexion</A>
+</UL>
+<BR>
+<LI><A ID="tex2html138"
+  HREF="bachelorarbeit_michael_engel.html#SECTION00900000000000000000">Fazit</A>
+<LI><A ID="tex2html139"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001000000000000000000">Anhang</A>
+<UL>
+<LI><A ID="tex2html140"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001010000000000000000">SignButton-Plugin</A>
+<UL>
+<LI><A ID="tex2html141"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001011000000000000000">Allgemeine Angaben zur Software</A>
+<LI><A ID="tex2html142"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001012000000000000000">Risikoeinstufung der Risiken der Anwendung</A>
+<LI><A ID="tex2html143"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001013000000000000000">Planung der Validierung</A>
+<LI><A ID="tex2html144"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001014000000000000000">Durchführung der Validierung</A>
+<LI><A ID="tex2html145"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001015000000000000000">Ergebnis der Validierung</A>
+</UL>
+<LI><A ID="tex2html146"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001020000000000000000">CopyButton-Plugin</A>
+<UL>
+<LI><A ID="tex2html147"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001021000000000000000">Allgemeine Angaben zur Software</A>
+<LI><A ID="tex2html148"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001022000000000000000">Risikoeinstufung der Risiken der Anwendung</A>
+<LI><A ID="tex2html149"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001023000000000000000">Planung der Validierung</A>
+<LI><A ID="tex2html150"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001024000000000000000">Durchführung der Validierung</A>
+<LI><A ID="tex2html151"
+  HREF="bachelorarbeit_michael_engel.html#SECTION001025000000000000000">Ergebnis der Validierung</A>
+</UL></UL></UL>
+<!--End of Table of Contents--><P>
+<BR>
+
+<H2><A ID="SECTION00300000000000000000">
+List of Figures</A>
+</H2><OL>
+<LI><A ID="tex2html2"
+  HREF="bachelorarbeit_michael_engel.html#237">Startseite der Online-Enzyklopädie Wikipedia, die auf der MediaWiki-Software basiert.</A>
+<LI><A ID="tex2html7"
+  HREF="bachelorarbeit_michael_engel.html#260">Quellcode für eine DokuWiki-Tabelle mit vertikal zusammengeführten Zellen.</A>
+<LI><A ID="tex2html8"
+  HREF="bachelorarbeit_michael_engel.html#266">Eine beispielhafte DokuWiki-Tabelle mit vertikal zusammengeführten Zellen.</A>
+<LI><A ID="tex2html13"
+  HREF="bachelorarbeit_michael_engel.html#301">Startseite des Qualitätsmanagementsystems des Instituts für Medizinische Informatik an der Universität Münster nach der Anmeldung.</A>
+<LI><A ID="tex2html15"
+  HREF="bachelorarbeit_michael_engel.html#384">Beispielhafte Vorgabe der Datei-Struktur für ein Syntax- und Action-Plugin von DokuWiki.</A>
+<LI><A ID="tex2html16"
+  HREF="bachelorarbeit_michael_engel.html#407">Vorgabe einer Struktur eines funktionalen DokuWiki-Plugins für die TableLib-Bibliothek.</A>
+<LI><A ID="tex2html21"
+  HREF="bachelorarbeit_michael_engel.html#468">Beispiel eines HTML-Kommentars nach der Umwandlung der DokuWiki-Syntax durch das Plugin CopyTable.</A>
+<LI><A ID="tex2html22"
+  HREF="bachelorarbeit_michael_engel.html#490">Codeausschnitt getLang</A>
+<LI><A ID="tex2html23"
+  HREF="bachelorarbeit_michael_engel.html#575">Beispiel eines fehlerhaften Trennstrichs trotz der gleichen Spaltenelemente in einer Tabelle.</A></OL>
+<BR>
+
+<H2><A ID="SECTION00400000000000000000">
+List of Tables</A>
+</H2><OL>
+<LI><A ID="tex2html29"
+  HREF="bachelorarbeit_michael_engel.html#680">Risikoeinstufung SignButton-Plugin</A>
+<LI><A ID="tex2html30"
+  HREF="bachelorarbeit_michael_engel.html#717">Validierung SignButton-Plugin</A>
+<LI><A ID="tex2html31"
+  HREF="bachelorarbeit_michael_engel.html#729">Durchführung der Validierung des SignButton-Plugins</A>
+<LI><A ID="tex2html32"
+  HREF="bachelorarbeit_michael_engel.html#775">Risikoeinstufung CopyButton-Plugin</A>
+<LI><A ID="tex2html33"
+  HREF="bachelorarbeit_michael_engel.html#818">Validierung CopyButton-Plugin</A>
+<LI><A ID="tex2html34"
+  HREF="bachelorarbeit_michael_engel.html#830">Durchführung der Validierung des CopyButton-Plugins</A></OL><P>
+
+<P>
+
+<H1><A ID="SECTION00500000000000000000">
+Einleitung</A>
+</H1>
+Die zunehmende Digitalisierung in Unternehmen und Organisationen hat den Prozess verändert, wie Wissen vermittelt, gesichert und dokumentiert wird.
+Gerade im Qualitätsmanagement ist die lückenlose und strukturierte Erfassung von Schulungsnachweisen entscheidend – sowohl für die
+interne Nachvollziehbarkeit als auch zur Erfüllung regulatorischer Richtlinien [#!medxteam23!#]. In stark regulierten Branchen wie
+der Medizintechnik fordert die international gültige ISO-Norm 13485, Schulungen  systematisch einzuplanen, durchzuführen, zu überprüfen,
+zu dokumentieren und zu archivieren [#!iso13485!#].
+<BR>
+<BR>
+In der Praxis erfolgt diese Dokumentation häufig noch manuell oder über proprietäre Lösungen, die wenig modular und schwer
+in bestehende Wissensplattformen integrierbar sind [#!rgt19!#]. Hier setzt die vorliegende Arbeit an:
+Ziel ist die Konzeption und Entwicklung zweier DokuWiki-Plugins, die die Dokumentation von Schulungsnachweisen
+unmittelbar im Wiki ermöglichen und gleichzeitig vereinfachen.
+<BR>
+<BR>
+Die vorliegende Arbeit gliedert sich in fünf Kapitel. Nach der Einleitung folgt das Kapitel Grundlagen, in dem das technische und
+organisatorische Fundament gelegt wird. Neben einem Überblick über Wikis und DokuWiki und dessen Plugin-Mechanismus werden
+auch normative und prozessuale Anforderungen an das Schulungswesen im Qualitätsmanagement behandelt. Im anschließenden
+Kapitel Ergebnisse werden die entwickelten Plugins im Detail beschrieben und validiert, bevor im Kapitel
+Diskussion zentrale Designentscheidungen, technische Alternativen, Limitierungen sowie verwandte Arbeiten analysiert
+werden. Den Abschluss bildet das Kapitel Fazit, in dem die Ergebnisse zusammengefasst und ein Ausblick auf mögliche
+Erweiterungen gegeben wird.
+
+<H1><A ID="SECTION00600000000000000000">
+Grundlagen</A>
+</H1>
+Zur fundierten Einordnung der entwickelten Lösung ist es notwendig,
+die zugrunde liegenden technischen Strukturen als auch die normativen Rahmenbedingungen umfassend zu erläutern.
+Dieses Kapitel bietet deshalb einen systematischen Überblick über die relevanten Grundlagen und Methoden. Dabei
+liegt der Fokus insbesondere auf dem eingesetzten Wiki-System DokuWiki, dem Plugin-Mechanismus, der Norm 13485 und auf
+den Aspekten der Dokumentation und Nachweispflicht im Qualitätsmanagement. Außerdem wird durch die Abstrahierung des
+Quellcodes eine neue DokuWiki-Bibliothek entwickelt und eine Zieldefinition der entwickelten DokuWiki-Plugins vorgestellt.
+
+<P>
+
+<H1><A ID="SECTION00610000000000000000">
+Wiki-Systeme</A>
+</H1>
+Wiki-Systeme haben sich seit der Einführung von Ward Cunninghams WikiWikiWeb im Jahr 1995 zu einer etablierten und bekannten
+Plattform für die kollaborative Erstellung und Pflege von Inhalten entwickelt [#!leuf2001wiki!#]. Das Prinzip von Wiki-Systemen besteht darin,
+dass Inhalte kollaborativ durch mehrere Nutzer erstellt und gepflegt werden. Häufig wird dafür eine
+einfach zu erlernende Markup-Sprache<A ID="tex2html1"
+  HREF="footnode.html#foot227"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> und eine browserbasierte Oberfläche verwendet. Die Versionskontrolle, ein minimalistischer
+technischer Aufwand sowie die Änderungsverfolgung sind zentrale Merkmale dieser Systeme. 
+<BR>
+Wiki-Systeme finden heutzutage in vielen Bereichen Anwendung [#!au2020wikis!#]:
+
+<UL>
+<LI>Lehre und Forschung
+</LI>
+<LI>Unternehmensinternes Wissensmanagement
+</LI>
+<LI>Qualitätsmanagement
+</LI>
+<LI>Open-Source Projekte
+</LI>
+</UL>
+Bekannte Plattformen wie MediaWiki (die Software hinter Wikipedia), TWiki, TikiWiki oder XWiki zeigen die Bandbreite
+von offenen bis strukturierten Lösungen [#!tiwari22!#]. Die Wahl eines solchen Systems hängt von vielen Faktoren wie technischer
+Infrastruktur, Benutzerfreundlichkeit, Erweiterbarkeit und Unterstützung bei Problemen ab. Abbildung <A HREF="#pic:wiki"><IMG  ALT="[*]" SRC="crossref.png"></A> zeigt die Startseite von Wikipedia.
+<BR>
+<BR>
+<BR>
+DokuWiki, eines dieser Wiki-Systeme, hebt sich hierbei durch seine schlanke Architektur, keine Datenbanken, einfache Installation und die
+breite Erweiterbarkeit durch Plugins hervor [#!dokuwiki!#]. Genau diese Eigenschaften machen es besonders attraktiv für Organisationen und Unternehmen, die
+mit geringen Ressourcen dennoch professionelle Dokumentationslösungen realisieren möchten.
+
+<DIV class="CENTER"><A ID="pic:wiki"></A><A ID="237"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Startseite der Online-Enzyklopädie Wikipedia, die auf der MediaWiki-Software basiert.</CAPTION>
+<TR><TD><IMG
+  WIDTH="613" HEIGHT="329" STYLE=""
+ SRC="./wiki.jpg"
+ ALT="Image wiki"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A ID="SECTION00620000000000000000">
+DokuWiki</A>
+</H1>
+DokuWiki ist ein quelloffenes und gut dokumentiertes Wiki-System, das sich durch eine dateibasierte Speicherung und hohe
+Anpassbarkeit auszeichnet. Da es nicht auf relationale Datenbanksysteme angewiesen ist, eignet es sich insbesondere für
+kleinere bis mittelgroße Organisationen, die ein internes Wissensmanagement betreiben wollen. Durch die klare Trennung von
+Inhaltsdaten (Textdateien im Wiki-Syntax<A ID="tex2html3"
+  HREF="footnode.html#foot241"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A>) und Präsentationslogik (PHP, HTML, CSS, JavaScript) bietet DokuWiki eine hohe
+Wartungsfreundlichkeit und lässt sich flexibel in bestehende IT-Infrastrukturen integrieren [#!dokuwiki!#].
+<BR>
+<BR>
+Durch die native Integration von Zugriffssteuerungslisten und Zugriff-Plugins ist DokuWiki auch sehr attraktiv für
+größere Unternehmen oder Organisationen, die mit den vielen frei zugänglichen Erweiterungen das Wiki-System so modular gestalten
+können, wie es ihren Anforderungen entspricht [#!acl-dokuwiki!#]. Das führt dazu, dass DokuWiki nicht nur beim Wiki-Anwendungsfall verwendet wird
+- beispielsweise auch im Qualitätsmanagement.
+<BR>
+<BR>
+Ein zentrales Merkmal von DokuWiki ist seine Plugin-Architektur, über die sich das System modular erweitern lässt [#!plugins-dokuwiki!#].
+Der Plugin-Manager gestattet die individuelle Anpassung der Benutzeroberfläche sowie die Integration funktionaler Erweiterungen.
+Die in der Arbeit entwickelten Plugins nutzen genau diesen Mechanismus, um die Funktionalität zur Bestätigung oder zum Kopieren von
+Tabelleninhalten bereitzustellen. DokuWiki bietet zudem einen eigenen Revisions-Mechanismus, der eine automatische Versionsverwaltung<A ID="tex2html4"
+  HREF="footnode.html#foot245"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A>
+innerhalb des DokuWiki-Systems ermöglicht. So können Veränderungen von Formen ganz einfach nachvollzogen werden und
+Änderungen von Inhalten systematisch differenziert und analysiert werden [#!rev-dokuwiki!#].
+<BR>
+<BR>
+Ein weiteres zentrales Merkmal von DokuWiki ist die ausgeprägte Mehrsprachigkeit. Die Software unterstützt Lokalisierung<A ID="tex2html5"
+  HREF="footnode.html#foot247"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> auf verschiedenen
+Ebenen, sowohl in der Benutzeroberfläche als auch in plugin-spezifischen Erweiterungen [#!loc-dokuwiki!#]. Über Sprachdateien im <SPAN  CLASS="textit">lang</SPAN>-Verzeichnis können Übersetzungen
+für einzelne Begriffe und Meldungen gepflegt werden. Dadurch lässt sich DokuWiki einfach in mehrsprachigen Organisationen einsetzen.
+Diese Lokalisierungsmechanismen sind auch für selbstentwickelte Plugins verfügbar und ermöglichen eine automatische und konsistente Benutzererfahrung
+unabhängig von der gewählten Sprache.
+
+<P>
+
+<H2><A ID="SECTION00621000000000000000">
+DokuWiki-Syntax</A>
+</H2>
+DokuWiki benutzt eine proprietäre, leichtgewichtige Auszeichnungssprache zur Strukturierung und Formatierung von Inhalten, die auf den fundamentalen
+Prinzipien von Markdown<A ID="tex2html6"
+  HREF="footnode.html#foot251"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> basiert, jedoch durch eine Vielzahl wiki-spezifischer Funktionalitäten ergänzt wurde. Die sogenannte DokuWiki-Syntax gestattet es den Nutzern,
+Inhalte ohne vorausgesetzte HTML-Kompetenzen semantisch eindeutig und visuell ansprechend zu strukturieren. Sie eignet sich besonders für strukturierte Dokumentationen,
+technische Berichte und kollaborative Wissenssammlungen.
+<BR>
+Die wesentlichen Bestandteile der DokuWiki-Syntax umfassen [#!syntax-dokuwiki!#]:
+
+<UL>
+<LI>Überschriften (<code>==== Überschrift ====</code>)
+</LI>
+<LI>Absätze und Listen (<code>*</code> für Aufzählungen, <code>-</code> für Nummerierungen)
+</LI>
+<LI>Links und Bilder (<code>[[Link]]</code>, <code>{{Bild.png}}</code>)
+</LI>
+<LI>Fett- und Kursivschrift (<code>**fett**</code>, <code>//kursiv//</code>)
+</LI>
+<LI>Code- und Zitatblöcke (<code>&lt;code&gt;</code>, <code>&gt;</code> für Zitate)
+</LI>
+</UL>
+Tabellen werden durch das senkrechte Strichzeichen (<SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.33ex; vertical-align: -0.68ex; " SRC="img2.png"
+ ALT="$\vert$"></SPAN>) festgelegt. Jede Zeile beginnt und endet mit einem <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.33ex; vertical-align: -0.68ex; " SRC="img2.png"
+ ALT="$\vert$"></SPAN>, wobei die einzelnen Zellen durch weitere <SPAN CLASS="MATH"><IMG
+ STYLE="height: 2.33ex; vertical-align: -0.68ex; " SRC="img2.png"
+ ALT="$\vert$"></SPAN> getrennt sind.
+Zellen, die mit <code>^</code> eingeleitet werden, kennzeichnen die Kopfzeilen. Zur Kombination mehrerer Zeilen, also vertikal verbundener Zellen, ist in der jeweiligen Zelle die Zeichenfolge ::: einzufügen.
+Abbildung <A HREF="#code:table"><IMG  ALT="[*]" SRC="crossref.png"></A> zeigt den Quellcode einer grundlegenden Tabelle mit vertikal verbundenen Zellen. Nach dem Generieren präsentiert Abbildung <A HREF="#img:table_pic"><IMG  ALT="[*]" SRC="crossref.png"></A> die vollständige Tabelle.
+
+<DIV class="CENTER"><A ID="code:table"></A><A ID="260"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Quellcode für eine DokuWiki-Tabelle mit vertikal zusammengeführten Zellen.</CAPTION>
+<TR><TD><IMG
+  WIDTH="540" HEIGHT="93" STYLE=""
+ SRC="./table_code.jpg"
+ ALT="Image table_code"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV class="CENTER"><A ID="img:table_pic"></A><A ID="266"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Eine beispielhafte DokuWiki-Tabelle mit vertikal zusammengeführten Zellen.</CAPTION>
+<TR><TD><IMG
+  WIDTH="310" HEIGHT="123" STYLE=""
+ SRC="./table_pic.jpg"
+ ALT="Image table_pic"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A ID="SECTION00630000000000000000">
+Plugin-Mechanismus</A>
+</H1>
+
+<H2><A ID="SECTION00631000000000000000">
+Allgemeines Konzept und Funktionsweise</A>
+</H2>
+Ein Plugin bezeichnet ein Softwaremodul, das in ein bestehendes Anwendungssystem eingebettet wird, um dessen Funktionalitäten zu erweitern, ohne dabei
+den ursprünglichen Quellcode zu modifizieren. Diese Architekturform ermöglicht eine hohe
+Flexibilität und Modularität und findet sich in zahlreichen Softwareplattformen wieder, von Webbrowsern über
+Content-Management-Systeme (CMS)<A ID="tex2html9"
+  HREF="footnode.html#foot271"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> bis hin zu Entwicklungsumgebungen<A ID="tex2html10"
+  HREF="footnode.html#foot272"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A>. 
+<BR>
+Häufige Einsatzgebiete von Plugins sind:
+
+<UL>
+<LI>Hinzufügen neuer Funktionalitäten
+</LI>
+<LI>Erweiterung um neue Datenverarbeitungsfunktionen
+</LI>
+<LI>Anbindung externer Dienste
+</LI>
+</UL>
+Plugins folgen meist definierten Schnittstellen oder Anbindungen, über die sie an das Hauptsystem angebunden werden.
+Es gibt keine einheitliche Norm für solche Systeme, doch agieren die damit als Beobachter oder Erweiterer bestehender Prozesse.
+In gut strukturierten Systemen wird diese Einbindung durch ein Programmiergerüst oder eine ereignisbasierte Programmierschnittstelle<A ID="tex2html11"
+  HREF="footnode.html#foot277"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> geregelt [#!pluginarch!#].
+
+<H2><A ID="SECTION00632000000000000000">
+Plugin-Mechanismus im DokuWiki</A>
+</H2>
+DokuWiki stellt ein strukturiertes Plugin-System zur Verfügung, das in mehrere Kategorien unterteilt ist [#!plugins-dokuwiki!#]:
+
+<UL>
+<LI>Syntax-Plugins: Plugins, die die DokuWik Basis-Syntax erweitern mit einer neuen Syntax oder Logik.
+</LI>
+<LI>Action-Plugins: Plugins, die die Kernfunktionalität von DokuWiki ersetzen oder erweitern.
+</LI>
+<LI>Admin-Plugins: Plugins, die zusätzliche Administrationswerkzeuge anbieten.
+</LI>
+<LI>Helper-Plugins: Plugins, die weitere Funktionalitäten für andere Plugins anbieten.
+</LI>
+<LI>Render-Plugins: Plugins, die neue Exporttypen hinzufügen oder die XHTML-Bildsynthese<A ID="tex2html12"
+  HREF="footnode.html#foot282"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> ersetzen.
+</LI>
+<LI>Remote-Plugins: Plugins, die weitere Methoden für Schnittstellen zur Fernsteuerung über Webdienste hinzufügen.
+</LI>
+<LI>Auth-Plugins: Plugins, die weitere Authentifizierungsmodule hinzufügen.
+</LI>
+<LI>CLI-Plugins: Plugins, die extra Befehle für die Kommandozeilenschnittstelle (englisch: Command Line Interface (CLI))
+        hinzufügen.
+</LI>
+</UL>
+Da die im Rahmen dieser Arbeit entwickelten Erweiterungen nur auf Syntax-Plugins und Action-Plugins basieren,
+werden nur die beiden weiter erläutert.
+<BR>
+<BR>
+Syntax-Plugins erweitern die Darstellungs- und Bearbeitungsmöglichkeiten im Inhaltsbereich des Wikis, während Action-Plugins
+auf spezifische Systemereignisse (sogenannte Events) reagieren und so tiefergehende Funktionalitäten ermöglichen, etwa
+beim Analysieren von Inhalten oder beim Anzeigen von HTML-Ausgaben. Ergänzt wird dies durch benutzerseitige JavaScript-Funktionalitäten,
+die zur Interaktion mit dem Nutzer dienen, beispielsweise zur Datumseinfügung.
+<BR>
+<BR>
+Die Plugins selbst sind in PHP geschrieben und nutzen JavaScript via Einbindung zur dynamischen
+Manipulation von HTML-Elementen auf der Benutzerseite [#!plugins-dokuwiki!#].
+
+<P>
+
+<H1><A ID="SECTION00640000000000000000">
+Normen und Anforderungen</A>
+</H1>
+Die ISO 13485 ist eine internationale Norm für Qualitätsmanagementsysteme in der Medizintechnik, die die Entwicklung und Herstellung
+von Medizinprodukten betrifft. Die Norm fordert unter anderem die umfassende Dokumentation sämtlicher qualitätsrelevanter Abläufe, einschließlich
+der Ausbildung und Qualifikation des Personals. Insbesondere wird im Abschnitt 6.2 der Norm
+(Personelle Ressourcen) gefordert, dass Nachweise über Schulung, Schulungsinhalte und Qualifikation jederzeit verfügbar
+sein müssen [#!iso13485!#].
+<BR>
+<BR>
+Ein implizierter Bestandteil dieser Norm ist die revisionssichere und nachvollziehbare Erfassung von Schulungsteilnahmen.
+Sowohl der Zeitpunkt als auch die beteiligten Personen müssen eindeutig dokumentiert sein. Ein Vorgang, der durch
+eines der entwickelten Plugins automatisiert und vereinheitlicht wird. Ein DokuWiki basiertes Schulungsdokument, das eine
+automatische Bestätigung durch Mitarbeitende ermöglicht, stellt in diesem Kontext eine technische Lösung zur Einhaltung dieser
+Vorgaben dar.
+<BR>
+<BR>
+Zudem sieht die ISO 13485 im Abschnitt 4.1.6 explizit die Validierung von Computersoftware vor, wenn diese Bestandteil des
+Qualitätsmanagementsystems ist oder dieses beeinflusst. Das bedeutet, dass jede eingesetzte Software, also auch eigens
+entwickelte Plugins, einer systematischen Überprüfung zu unterziehen ist, um zu bestätigen, dass sie die intendierte Funktion
+verlässlich und reproduzierbar erfüllt [#!iso13485!#]. 
+<BR>
+<BR>
+Die Validierung erfolgt dabei im Rahmen eines dokumentierten Lebenszyklusmodells, das Anforderungen, Design, Implementierung,
+Test, Freigabe und Wartung umfasst. Für Softwareerweiterungen wie Plugins sind damit detaillierte Testszenarien,
+Prüfprotokolle und ein nachvollziehbarer Freigabeprozess verpflichtend, um Konformität mit ISO 13485 und gegebenenfalls mit weiteren
+regulatorischen Vorgaben (zum Beispiel FDA 21 CFR Part 11) sicherzustellen [#!iso13485!#] [#!fda!#].
+
+<P>
+
+<H1><A ID="SECTION00650000000000000000">
+Qualitätsmanagement in der Medizintechnik</A>
+</H1>
+Das Qualitätsmanagementsystem (QMS) in medizinischen Einrichtungen oder Unternehmen der Medizintechnik basiert
+auf der systematischen Planung, Durchführung und Überwachung von qualitätssichernden Maßnahmen. Ein zentrales Element dieser Maßnahmen
+stellt die Schulung und Weiterbildung von Mitarbeitenden dar. Üblicherweise erfolgt die Dokumentation über standardisierte
+Formblätter, die händisch unterschrieben und archiviert werden [#!qt9_manual_document_control_2024!#]. 
+<BR>
+<BR>
+Diese Prozesse sind jedoch fehleranfällig, zeitintensiv und nicht revi- sionssicher und entsprechen nicht mehr dem Stand der Technik [#!simplerqms_manual_qms_2025!#].
+Durch die Integration digitaler Lösungen - etwa in Form von digitalen Qualitätsmanagementsystemen oder Plugins für etablierte Wissensmanagementsysteme
+wie DokuWiki lässt sich diese Problematik deutlich abmildern. Ein effizientes Qualitätsmanagementsystem ist in der Medizintechnik nicht lediglich ein
+organisatorisches Instrument, sondern eine zwingende regulatorische Anforderung. Neben der Prozesssicherheit und Risikominimierung spielt insbesondere
+die Erfüllung gesetzlicher Anforderungen eine zentrale Rolle. Nationale und internationale Normen, insbesondere die ISO 13485, erfordern folglich ein hohes
+Maß an Struktur, Transparenz und Reproduzierbarkeit. 
+<BR>
+<BR>
+Die Besonderheit im medizintechnischen Bereich liegt in der direkten oder indirekten Auswirkung auf die Patientensicherheit. Daher ist die lückenlose Dokumentation
+aller qualitätsrelevanten Aktivitäten unerlässlich. Überprüfungen durch benannte Stellen oder Behörden wie die FDA (Food and Drug Administration) verlangen jederzeitigen
+Nachweis der QMS-Konformität [#!fda!#].
+<BR>
+<BR>
+<BR>
+Neben der klassischen Dokumentation gewinnen digitale Systeme zunehmend an Bedeutung. Diese ermöglichen nicht nur eine höhere Effizienz, sondern auch eine
+bessere Nachvollziehbarkeit durch elektronische Versionierung, kontrollierte Zugriffe und revisionssichere Archivierung. Insbesondere im Bereich
+Schulungsnachweise tragen automatisierte Erfassungsmechanismen dazu bei, Fehlerquellen wie vergessene Unterschriften oder fehlerhafte Daten zu
+minimieren. Dadurch steigt nicht nur die regulatorische Regelkonformität, sondern auch die betriebliche Effizienz.
+<BR>
+<BR>
+Die Integration solcher Systeme – wie etwa DokuWiki (siehe Abbildung <A HREF="#pic:dokuwiki"><IMG  ALT="[*]" SRC="crossref.png"></A>) mit spezifischen Plugins – erlaubt eine direkte Einbindung in bestehende Abfolgen und unterstützt
+eine kontinuierliche Verbesserung gemäß ISO 13485, Kapitel 8.5.1 (Maßnahmen zur Verbesserung) [#!iso13485!#].
+
+<DIV class="CENTER"><A ID="pic:dokuwiki"></A><A ID="301"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Startseite des Qualitätsmanagementsystems des Instituts für Medizinische Informatik an der Universität Münster nach der Anmeldung.</CAPTION>
+<TR><TD><IMG
+  WIDTH="604" HEIGHT="412" STYLE=""
+ SRC="./cms.jpg"
+ ALT="Image cms"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A ID="SECTION00660000000000000000">
+Anforderungen an Software im regulierten Umfeld</A>
+</H1>
+Software, die im stark regulierten Bereich der Medizintechnik eingesetzt wird, unterliegt spezifischen Anforderungen hinsichtlich Entwicklung,
+Dokumentation und Nutzung. Maßgeblich sind hierbei regulatorische Normen wie die ISO 13485 sowie ergänzende Richtlinien, etwa die EU-GMP Annex 11 [#!eu-gmp-11!#]
+und die US-amerikanische FDA-Vorgabe 21 CFR Part 11. Diese setzen strenge Maßstäbe an die Validierbarkeit, Nachvollziehbarkeit und Revisionssicherheit
+eingesetzter Software [#!fda!#].
+<BR>
+Die grundlegenden Anforderungen lassen sich wie folgt strukturieren:
+
+<UL>
+<LI>Validierbarkeit: Die Software muss sich durch reproduzierbare Tests auf ihre korrekte Funktion prüfen lassen. Dies gilt sowohl für Hauptanwendungen
+        als auch für Erweiterungen (zum Beispiel Plugins).
+</LI>
+<LI>Nachvollziehbarkeit: Jede Änderung am System oder an gespeicherten Daten muss eindeutig dokumentiert und einer verantwortlichen natürlichen
+        Person zugeordnet werden können.
+</LI>
+<LI>Revisionssicherheit: Einträge und Daten dürfen nach ihrer Erstellung nicht ohne Nachweis verändert werden. Frühere Systemzustände müssen nachvollziehbar
+        und wiederherstellbar sein.
+</LI>
+<LI>Risikomanagement: Risiken, die durch die Nutzung der Software entstehen können, müssen identifiziert, bewertet und kontrolliert werden. Die Risikoeinschätzung
+        beeinflusst direkt den Umfang der erforderlichen Validierung.
+</LI>
+</UL>
+Ergänzend dazu definieren die GAMP-5-Vorgaben (Good Automated Manufacturing Practice) ein etabliertes Rahmenwerk für die Validierung von Computersystemen.
+Sie klassifizieren Software nach Komplexitäts- und Risikostufen und dienen als Basis zur Bestimmung des Validierungsaufwands [#!gamp!#]:
+
+<UL>
+<LI>Kategorie 1 (Infrastruktur): Software wie Betriebssysteme oder Datenbankmanagementsysteme, die nicht individuell konfiguriert werden,
+        gelten als automatisch validiert im Rahmen des regulären Betriebs.
+</LI>
+<LI>Kategorie 3 (Nicht konfiguriert): Standardsoftware in unveränderter Form, z. B. Webbrowser oder Textverarbeitungsprogramme. Eine gesonderte Validierung
+        ist in der Regel nicht erforderlich.
+</LI>
+<LI>Kategorie 4 (Konfigurierbar): Systeme, die durch Plugins, Makros<A ID="tex2html14"
+  HREF="footnode.html#foot311"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> oder spezifische Konfigurationen funktional erweitert werden. Diese erfordern eine
+        Risikobewertung und in der Regel eine vollständige Validierung.
+</LI>
+<LI>Kategorie 5 (Eigenentwicklung): Individualsoftware, etwa Open-Source Lösungen mit institutioneller Anpassung oder vollständigen Neuentwicklungen.
+        Diese unterliegen strengen Dokumentations- und Prüfpflichten.
+</LI>
+</UL>
+Am Beispiel des Instituts für Medizinische Informatik (IMI) der Universität Münster zeigt sich, wie diese Anforderungen im praktischen Einsatz umgesetzt werden.
+Dort ist jede eingesetzte Software, die im Kontext eines Medizinprodukts oder -prozesses steht, vor dem produktiven Einsatz zu validieren. 
+<BR>
+Die Validierung erfolgt
+in einem strukturierten Verfahren, das sich in Planung, Durchführung und Dokumentation gliedert. Zuständig ist die jeweilige Arbeitsgruppenleitung, unterstützt
+durch benannte Planer und Prüfer (Vier-Augen-Prinzip) [#!formblatt!#].
+<BR>
+<BR>
+Ein zentrales Dokument ist das Formblatt: Planung und Protokollierung einer Softwarevalidierung, in dem sämtliche Angaben zur Software, deren Zweck, Einsatzbereich,
+GAMP-Kategorie sowie die Risikobewertung und die durchgeführten Validierungsschritte festgehalten werden. Jede Funktion wird einzeln bewertet und einer von drei
+Risikoklassen zugeordnet [#!formblatt!#]:
+
+<UL>
+<LI>RK1 (absolut kritisch): Fehler führen zu gravierenden Einschränkungen oder Gefährdungen. Eine Validierung ist zwingend erforderlich.
+</LI>
+<LI>RK2 (kritisch): Fehler wirken sich auf Prozesse oder Patientensicherheit aus. Eine Validierung ist in der Regel erforderlich, kann aber
+        mit Begründung entfallen.
+</LI>
+<LI>RK3 (unkritisch): Fehler haben keine wesentlichen Auswirkungen. Eine Validierung ist nicht zwingend erforderlich, aber die Risikoeinstufung
+        muss regelmäßig überprüft werden.
+</LI>
+</UL>
+Der Validierungsplan umfasst die Beschreibung der zu prüfenden Risiken (R#), die erwarteten Testergebnisse sowie die konkrete Durchführung durch Prüfer.
+Das Ergebnis wird von Planer bewertet. Revalidierungen müssen in regelmäßigen Abständen – spätestens alle zwei bis vier Jahre – durchgeführt oder begründet
+ausgesetzt werden, insbesondere bei Software der GAMP-Kategorie 4 und 5.
+<BR>
+<BR>
+Der vollständige Ablauf einer Softwareverifizierung im regulierten Umfeld gliedert sich typischerweise in folgende Phasen:
+<BR>
+<OL>
+<LI>Planung: Festlegung von Zweck, Umfang, Verantwortlichkeiten und Risikobewertung der Software. Dies erfolgt zumeist mithilfe vordefinierter Formblätter (z. B. Softwarevalidierungsplan).
+</LI>
+<LI>Anforderungsdefinition: Die Softwarefunktionen werden dokumentiert und in funktionale sowie nicht-funktionale Anforderungen überführt. Diese dienen als
+    Grundlage für die nachfolgenden Tests.
+</LI>
+<LI>Testkonzeption und -durchführung: Basierend auf den definierten Anforderungen werden Testszenarien erstellt. Für jede Funktion muss mindestens ein
+    positiver Testfall sowie – bei risikobehafteten Komponenten – ein negativer Testfall dokumentiert sein.
+</LI>
+<LI>Bewertung und Freigabe: Die Testergebnisse werden ausgewertet und durch autorisierte Personen geprüft (Vier-Augen-Prinzip). Nur bei vollständiger Erfüllung der Anforderungen erfolgt die Freigabe für den produktiven Einsatz.
+</LI>
+<LI>Dokumentation: Sämtliche Schritte – von der Planung über die Durchführung bis zur Freigabe – werden revisionssicher dokumentiert und archiviert.
+    Änderungen am System erfordern gegebenenfalls eine Revalidierung.
+</LI>
+</OL>
+Dieser strukturierte Ansatz gewährleistet nicht nur die Einhaltung regulatorischer Anforderungen, sondern
+schafft auch Vertrauen in die eingesetzten digitalen Werkzeuge im Qualitätsmanagement.
+<BR>
+<BR>
+Die Kombination aus international anerkannten Regularien, risikobasierter Kategorisierung und strukturierter Dokumentation gewährleistet, dass Software
+im regulierten Umfeld nicht nur funktional, sondern auch normkonform und sicher eingesetzt werden kann.
+
+<H1><A ID="SECTION00670000000000000000">
+Zieldefinition</A>
+</H1>
+Ziel der entwickelten Plugins ist es, die Dokumentation von Schulungsnachweisen zu vereinfachen, zu automatisieren und an die
+spezifischen Anforderungen der Medizintechnik anzupassen. 
+<BR>
+<BR>
+Der Funktionsumfang des ersten Plugins (SignButton-Plugin) umfasst:
+
+<UL>
+<LI>Dynamisches Ergänzen von Bestätigungsschaltflächen in Tabellen
+</LI>
+<LI>Automatisches Eintragen von Nutzername und Datum
+</LI>
+<LI>Rückgängigmachen von Eintragungen
+</LI>
+<LI>Hohe Kompatibilität mit bestehenden DokuWiki-Seiten
+<BR></LI>
+</UL>
+Das zweite Plugin (CopyButton-Plugin) umfasst:
+
+<UL>
+<LI>Dynamisches Ergänzen von Kopierschaltflächen in Tabellen
+</LI>
+<LI>Kopieren einer Reihe in eine andere Tabelle
+</LI>
+<LI>Automatisches Eintragen des aktuellen Datums
+</LI>
+<LI>Optionales Löschen der Kopiersätze
+</LI>
+</UL>
+Die Plugins wurden so konzipiert, dass es ohne Änderung an der Kernsoftware, ausschließlich das Hinzufügen der Plugins
+und eine weitere Bibliothek, der TableLib-Bibliothek, durch Administratoren mit Basiskenntnissen installiert und konfiguriert
+werden kann.
+
+<H1><A ID="SECTION00700000000000000000">
+Ergebnisse</A>
+</H1>
+Dieses Kapitel beschreibt die technische Realisierung der im Rahmen dieser Arbeit entwickelten DokuWiki-Plugins.
+Insbesondere wird am Anfang auf die Zielsetzung der Implementierungen, den Aufbau der Erweiterungen, die Technologien sowie die Funktionsweisen der Implementierungen eingegangen. Zudem werden
+die Plugins validiert, damit sie in ein ISO 13485 konformes System integriert und verwendet werden können. Zuletzt wird eine beispielhafte Nutzung
+vorgestellt und ein Blick auf die Modifizierbarkeit und Sicherheit geworfen.
+
+<P>
+
+<H1><A ID="SECTION00710000000000000000">
+Zielsetzung der Implementierung</A>
+</H1>
+Im Zentrum der vorliegenden Arbeit steht die Entwicklung und Validierung von zwei Erweiterungen für das DokuWiki-System,
+die die strukturierte Dokumentation von Schulungsmaßnahmen innerhalb eines Qualitätsmanagementsystems im Medizinsektor erleichtern.
+Ziel war die Entwicklung zweier Werkzeuge, die mit minimaler Benutzerinteraktion den Namen des aktuell angemeldeten Nutzers
+sowie das aktuelle Datum in ein definiertes Tabellenfeld automatisiert eintragen oder eine Tabellenreihe in eine andere vordefinierte Tabellenreihe kopieren,
+wobei das Datum automatisiert in die vordefinierte Spalte eingetragen wird. 
+<BR>
+<BR>
+Zudem sollten beide Erweiterungen eine Rückgängig-Funktion besitzen, die es ermöglicht, den vorher ausgeführten Vorgang zu einem gewissen
+Grad zu rekonstruieren. Diese Funktionen sollen insbesondere dort Anwendung finden, wo Mitarbeitende ihre Teilnahme oder Teilnahmen von anderen Personen
+an verpflichtenden Schulungen oder Informationsveranstaltungen bestätigen müssen. 
+<BR>
+<BR>
+Sowohl die beiden Plugins als auch die TableLib-Bibliothek sind so konstruiert, dass sie vollständig in eine existierende DokuWiki-Infrastruktur integriert werden können,
+ohne Änderungen am Kern vornehmen zu müssen. Dadurch wird eine hohe Kompatibilität erreicht und zukünftige Erweiterbarkeit erleichtert.
+Ein weiteres Ziel war die einfache Instandhaltung der beiden Erweiterungen, die mit dem modularen Konzept der TableLib-Bibliothek vereinfacht und ermöglicht wurde. So muss nur eine zentrale Erweiterung
+aktualisiert werden, um weitere Funktionen an beiden Plugins zu ermöglichen.
+
+<P>
+
+<H1><A ID="SECTION00720000000000000000">
+Aufbau</A>
+</H1>
+Um ein fundiertes Wissen für die Funktionsweise der Erweiterungen zu haben, ist die Struktur der Plugins detailliert darzustellen. Dafür wird zwischen den
+beiden Erweiterungen und der TableLib-Bibliothek differenziert, da diese sich von der grundlegenden Struktur unterscheiden. Während die Struktur der TableLib-Bibliothek
+nicht den konventionellen Aufbau eines DokuWiki-Plugins verfolgt, richtet sich die Architektur der beiden Plugins strikt nach den Konventionen für DokuWiki-Erweiterungen.
+
+<P>
+
+<H2><A ID="SECTION00721000000000000000">
+Dateistruktur-Plugins</A>
+</H2>
+Die grundlegende Dateistruktur beider Erweiterungen ist identisch und orientiert sich an den Konventionen von DokuWiki-Plugins (siehe Abbildung <A HREF="#ds:normal"><IMG  ALT="[*]" SRC="crossref.png"></A>).
+
+<DIV class="CENTER"><A ID="ds:normal"></A><A ID="384"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Beispielhafte Vorgabe der Datei-Struktur für ein Syntax- und Action-Plugin von DokuWiki.</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 94.00ex; " SRC="img3.png"
+ ALT="\begin{figure}\begin{forest}
+for tree={font=\sffamily , grow'=0,
+folder indent=....
+...s file]
+[style.css, is file]
+[syntax.php, is file]
+]
+\end{forest}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<BR>
+In der Datei <SPAN  CLASS="textit">action.php</SPAN> sind die wesentlichen Logikelemente für die Ereignissteuerung der Erweiterungen untergebracht, während in der Datei <SPAN  CLASS="textit">script.js</SPAN> die benutzerseitigen
+Skripte zur Interaktion mit Schaltflächen implementiert sind. Für die korrekte Anzeige ist die <SPAN  CLASS="textit">style.css</SPAN>-Datei erforderlich, die grundlegende Formatierungen
+beinhaltet. Die Datei <SPAN  CLASS="textit">plugin.info.txt</SPAN> beinhaltet Informationen zur Erweiterung, einschließlich Name, Autor, Datum und Installationspfad und ist für DokuWiki zwingend erforderlich.
+Um die vom Nutzer vordefinierten Tabellen modular anzugeben, wird eine <SPAN  CLASS="textit">syntax.php</SPAN>-Datei benötigt, die dafür
+zuständig ist, DokuWiki-Syntax zu erkennen und in ein anderes Format zu konvertieren. 
+<BR>
+<BR>
+Weil die Plugins modular gestaltet sind, benötigen beide ein
+Konfigurationsverzeichnis, das wiederum aus einer <SPAN  CLASS="textit">default.php</SPAN> und einer <SPAN  CLASS="textit">metadata.php</SPAN>-Datei besteht. In der <SPAN  CLASS="textit">default.php</SPAN>-Datei steht das vordefinierte Datumsformat,
+das mit der <SPAN  CLASS="textit">metadata.php</SPAN>-Datei referenziert wird und somit dem Nutzer zugänglich gemacht wird. 
+<BR>
+<BR>
+Dank des modularen Aufbaus von DokuWiki bietet das Wiki-System verschiedene Lokalisierungsoptionen, die es den Nutzern ermöglichen, die Benutzeroberfläche in unterschiedlichen Sprachen darzustellen.
+Die genannten Lokalisierungsmechanismen finden ebenfalls Anwendung auf selbst entwickelte Plugins, weshalb unterschiedliche Lokalisierungstexte im Ordner <SPAN  CLASS="textit">lang</SPAN>
+abgelegt sind. Der Standard von DokuWiki ist die englische Sprache, weshalb sich eine <SPAN  CLASS="textit">lang.php</SPAN>-Datei im Unterverzeichnis <SPAN  CLASS="textit">en</SPAN> befindet. Für die Nutzung der Erweiterungen
+in deutscher Sprache steht eine <SPAN  CLASS="textit">lang.php</SPAN>-Datei im Unterverzeichnis <SPAN  CLASS="textit">de</SPAN> zur Verfügung.
+<BR>
+<BR>
+Die gewählte Struktur fördert eine klare Verantwortlichkeitstrennung und erleichtert die zukünftige Erweiterbarkeit der Plugins erheblich.
+
+<P>
+
+<H2><A ID="SECTION00722000000000000000">
+Dateistruktur TableLib-Bibliothek</A>
+</H2>
+Abbildung <A HREF="#ds:tl"><IMG  ALT="[*]" SRC="crossref.png"></A> zeigt die Dateistruktur der TableLib-Bibliothek, die in Form eines DokuWiki-Plugins implementiert ist.
+
+<DIV class="CENTER"><A ID="ds:tl"></A><A ID="407"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Vorgabe einer Struktur eines funktionalen DokuWiki-Plugins für die TableLib-Bibliothek.</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 18.46ex; " SRC="img4.png"
+ ALT="\begin{figure}\begin{forest}
+for tree={font=\sffamily , grow'=0,
+folder indent=....
+...elib
+[lib.php, is file]
+[plugin.info.txt, is file]
+]
+\end{forest}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<BR>
+<BR>
+Wie bereits erwähnt erfordert jedes DokuWiki-Plugin eine Datei namens <SPAN  CLASS="textit">plugin.info.txt</SPAN>, in der die entsprechenden Informationen zum Autor, Datum und
+weiteren relevanten Details enthalten sind. Da es sich bei diesem Plugin nicht um ein reguläres DokuWiki-Plugin handelt, sondern um eine Datei,
+die Funktionen für andere Plugins bereitstellt, fehlen die Dateien <SPAN  CLASS="textit">action.php</SPAN> und <SPAN  CLASS="textit">syntax.php</SPAN>. In Anbetracht desselben Grundes sind ebenfalls keine
+Lokalisierungsoptionen sowie kein Konfigurationsverzeichnis notwendig und folglich auch nicht vorhanden.
+<BR>
+<BR>
+Der Ordner enthält ausschließlich eine <SPAN  CLASS="textit">lib.php</SPAN>-Datei, in der die für die beiden DokuWiki-Plugins erforderlichen Funktionen zur Tabellenmanipulation
+implementiert sind. Obwohl der Umfang dieses Plugins gering ist, wird die Erweiterung von DokuWiki anerkannt und kann durch die Referenzierung mit anderen
+Erweiterungen integriert werden.
+<BR>
+<BR>
+Diese Struktur der Bibliothek ermöglicht so ein kompaktes, zugleich modulares System für Abhängigkeiten, das leicht modifizierbar und doch strukturiert ist.
+
+<P>
+
+<H1><A ID="SECTION00730000000000000000">
+Technologien und eingesetzte Bibliotheken</A>
+</H1>
+Die Implementierung der Plugins wurde unter Anwendung von PHP realisiert, der nativen Skriptsprache von DokuWiki. Um die Interaktionsprozesse umzusetzen, wurden JavaScript und CSS verwendet.
+Der Schwerpunkt lag dabei darauf, Klickereignisse zuverlässig zu erfassen und die Schaltflächen in den Tabellen effizient zu integrieren.
+Ajax<A ID="tex2html17"
+  HREF="footnode.html#foot416"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> wurde eingesetzt, um eine effiziente und störungsfreie
+Interaktion zwischen der Benutzerebene und der Anwendungsebene zu gewährleisten. So wird eine sichere Übertragung der notwendigen Informationen, wie etwa Tabellen- und Reihenindizes, an die Anwendungsebene gewährleistet.
+<BR>
+<BR>
+Außerdem wird jQuery, eine freie JavaScript-Bibliothek, die Funktionen zur DOM-Navigation und -Manipulation<A ID="tex2html18"
+  HREF="footnode.html#foot417"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> anbietet, benutzt, um Ereignisse auf Schaltflächen zu
+registrieren, mit denen dann die Ajax-Aufrufe gestartet werden [#!haris2024masteringjquery!#]. Um die verschiedenen Datumsspalten einheitlich und effizient zu erkennen, wird die eingebaute
+RegEXP-Funktionalität<A ID="tex2html19"
+  HREF="footnode.html#foot419"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> von JavaScript benutzt, mithilfe ihrer Funktion
+dann die richtigen Spalten identifiziert werden. 
+<BR>
+<BR>
+Damit der Nutzer auf der Benutzerseite bei möglichen Fehlern oder Ereignissen auch eine Rückmeldung bekommt, werden Fehlermeldungen als JSON<A ID="tex2html20"
+  HREF="footnode.html#foot420"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A>
+kodiert und dann an die Benutzerseite übermittelt.
+<BR>
+<BR>
+Im Rahmen der Entwicklung wurden bei beiden Plugins Action-Plugins sowie Syntax-Plugins realisiert.
+Bei der Implementierung von Action-Plugins ist es erforderlich, im Vorfeld ein oder mehrere hooks festzulegen, die dafür verantwortlich sind,
+bestimmte Ereignisse zu identifizieren und zuvor eine Funktion auszuführen. Die beiden verwendeten hooks sind:
+
+<UL>
+<LI><SPAN  CLASS="textit">AJAX_CALL_UNKOWN</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">TPL_ACT_RENDER</SPAN>
+</LI>
+</UL>
+Der <SPAN  CLASS="textit">AJAX_CALL_UNKOWN</SPAN> hook ist verantwortlich für den Empfang von Ajax-Anfragen, die für die Interaktion zwischen den beiden Seiten erforderlich sind.
+Der <SPAN  CLASS="textit">TPL_ACT_RENDER</SPAN> ist verantwortlich für die Integration von Informationen in JavaScript, da beide Plugins auf der Benutzerseite statische Daten erfordern,
+wie beispielsweise das Datumsformat oder die korrekten Übersetzungen der Schaltflächen.
+Beim Syntax-Plugin muss auch ein Typ angegeben werden, also ein Modus, mit dem dann mit einer vorher definierten Syntax interagiert wird. Beide Plugins benutzen
+hier den Typ <SPAN  CLASS="textit">Substitution</SPAN>, der einfach die angegebene Syntax mit einer anderen Syntax oder einem anderen Text substituiert. 
+<BR>
+<BR>
+Zuletzt wird die selbst für die Arbeit entwickelte Bibliothek TableLib benutzt, die verschiedenste Funktionen für die Tabellenmanipulation in PHP zur Verfügung
+stellt. Da diese Tabellen in einer eigenen Sprache, der DokuWiki-Markup Syntax erstellt und definiert werden, hilft diese Bibliothek, Interaktionen mit
+den Tabellen zu vereinheitlichen.
+
+<P>
+
+<H1><A ID="SECTION00740000000000000000">
+Funktionsweise</A>
+</H1>
+
+<H2><A ID="SECTION00741000000000000000">
+TableLib-Bibliothek</A>
+</H2>
+Die TableLib-Bibliothek stellt verschiedene Funktionen zur Manipulation von Tabellen für die Anwendungsseite zur Verfügung. Hierzu zählen unter
+anderem Funktionen zum Abrufen von DokuWiki-Tabellen, zum Abrufen von Zeilen, zur Modifikation des Wikis sowie Funktionen zum Hinzufügen und Entfernen
+von Zeilen aus einer Tabelle. Diese Funktionen werden von beiden Plugins durch den Anruf von <SPAN  CLASS="textit">require_one(__DIR__, '/../tablelib/lib.php')</SPAN> importiert.
+Dabei stellt <SPAN  CLASS="textit">__DIR__</SPAN> eine automatische Variable dar, die den Pfad des aktuellen Verzeichnisses zurückgibt.
+
+<P>
+
+<H2><A ID="SECTION00742000000000000000">
+Plugins</A>
+</H2>
+Da beide Plugins eine identische Struktur aufweisen, jedoch lediglich in den Aufrufen der TableLib-Funktionen variieren, erfolgt eine zusammenfassende
+Darstellung der Funktionsweisen der Plugins.
+
+<P>
+
+<H3><A ID="SECTION00742100000000000000">
+Initialisierung</A>
+</H3>
+Jedes DokuWiki Action-Plugin benötigt die Funktion <SPAN  CLASS="textit">register</SPAN>, in der die verschiedenen hooks registriert werden. Diese hooks verweisen dann auf
+jeweils die beiden Funktionen <SPAN  CLASS="textit">handle_ajax</SPAN> und <SPAN  CLASS="textit">inject_lang_js</SPAN>. Die <SPAN  CLASS="textit">handle_ajax</SPAN>-Funktion ist verantwortlich für die Bearbeitung
+der von der Benutzeroberfläche initiierten Ajax-Anfragen und für die gleichzeitige Übermittlung von Daten an die Benutzeroberfläche. Währenddessen ist
+die <SPAN  CLASS="textit">inject_lang_js</SPAN>-Funktion dafür verantwortlich, statische Informationen mit dem JavaScript zu verknüpfen.
+Für die Syntax-Plugin Logik müssen mindestens fünf Funktionen implementiert werden, damit DokuWiki das Syntax-Plugin erkennt:
+
+<UL>
+<LI><SPAN  CLASS="textit">getType()</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">getSort()</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">connectTo()</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">handle()</SPAN>
+</LI>
+<LI><SPAN  CLASS="textit">render()</SPAN>
+</LI>
+</UL>
+Die Funktion <SPAN  CLASS="textit">getType</SPAN> definiert den Modus des Syntax-Plugins, während die Funktion <SPAN  CLASS="textit">getSort</SPAN> numerisch angibt, in welcher Reihenfolge die Syntax
+hinzugefügt wird. Die Funktion <SPAN  CLASS="textit">connectTo</SPAN> registriert verschiedene Syntaxmuster, die Funktion <SPAN  CLASS="textit">handle</SPAN> bereitet die gefundene Syntax für das
+Anzeigen vor und die Funktion <SPAN  CLASS="textit">render</SPAN> zeigt schließlich den Inhalt dem Nutzer an. 
+<BR>
+<BR>
+In beiden Plugins, dem SignButton-Plugin sowie dem CopyButton-Plugin wird eine spezifische Syntax definiert und umgesetzt, die es ermöglicht, die entsprechenden
+Tabellen zum Signieren sowie die Tabellen zum Kopieren oder Hinzufügen eindeutig zu identifizieren. Diese Syntax wird als Markierung betrachtet und hat folgendes Format:
+
+<P>
+
+<UL>
+<LI><code>&lt;sign,n=x,d=y&gt;</code>
+</LI>
+<LI><code>&lt;/sign&gt;</code>
+</LI>
+<LI><code>&lt;copy,t=z,d=y,l=b&gt;</code>
+</LI>
+<LI><code>&lt;/copy&gt;</code>
+</LI>
+</UL>
+Sie wird jeweils vor den zu kennzeichnenden Tabellen hinzugefügt und  nach einer oder mehreren geschlossen mit <code>&lt;/..&gt;</code>.
+Mit dem Parameter <SPAN  CLASS="textit">x</SPAN> wird die Namensspalte, <SPAN  CLASS="textit">y</SPAN> die Datumsspalte, <SPAN  CLASS="textit">z</SPAN> der Tabellenindex für das Hinzufügen
+der Reihe und <SPAN  CLASS="textit">l</SPAN>=0, <SPAN  CLASS="textit">l</SPAN>=1 oder <SPAN  CLASS="textit">l</SPAN>=2 für das optionale Löschen der zu kopierenden Reihe nach dem Kopiervorgang identifiziert. Alle Indizes beginnen bei 0. Eine Zahl bei <SPAN  CLASS="textit">l</SPAN>
+größer als 0 gibt an, ob die Reihe nach dem Löschen erneut in die Kopiertabelle eingefügt werden soll.
+Die Werte 1 oder 2 bestimmen die Position, an der dies erfolgen soll, nämlich entweder oben in der Tabelle (=1) oder unten (=2).
+Da diese Syntax aber keine HTML-Sprache ist und dementsprechend nicht richtig angezeigt werden kann, wird sie durch das DokuWiki Syntax-Plugin Modul zu einem
+HTML-Kommentar (siehe Abbildung <A HREF="#pic:comment"><IMG  ALT="[*]" SRC="crossref.png"></A>) substituiert, der an der gleichen Position ist und die vordefinierten Parameter beinhaltet.
+
+<DIV class="CENTER"><A ID="pic:comment"></A><A ID="468"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Beispiel eines HTML-Kommentars nach der Umwandlung der DokuWiki-Syntax durch das Plugin CopyTable.</CAPTION>
+<TR><TD><IMG
+  WIDTH="425" HEIGHT="96" STYLE=""
+ SRC="./html-comment.jpg"
+ ALT="Image html-comment"></TD></TR>
+</TABLE>
+</DIV>
+
+<BR>
+Nachdem die <SPAN  CLASS="textit">script.js</SPAN>-Datei und die <SPAN  CLASS="textit">style.css</SPAN>-Datei automatisch von der Benutzerseite geladen wurden, werden jeweils die nötigen Tabellen identifiziert und geladen.
+Im Anschluss daran werden interaktive Schaltflächen neben den entsprechenden Spalten hinzugefügt, sofern solche vorhanden sind. Den jeweiligen Schaltflächen werden
+Funktionen zugeordnet, die bei der Interaktion mit der Schaltfläche ausgeführt werden. Diese Funktionen aktivieren die unterschiedlichen Funktionen zur
+Tabellenmanipulation, die mit den notwendigen Parametern - wie beispielsweise dem Tabellen- oder Spaltenindex - abgerufen werden.
+<BR>
+<BR>
+Danach werden diese Informationen über einen Ajax-Aufruf zurück an die Anwendungsseite gesendet.
+Nach dem Aufruf wird überprüft, ob ein SUCCESS oder eine Fehlermeldung empfangen wurde. Falls eine Fehlermeldung empfangen wurde, wird diese dem
+aktuell angemeldeten Nutzer angezeigt.
+
+<P>
+
+<H3><A ID="SECTION00742200000000000000">
+Validierung</A>
+</H3>
+Zu Beginn der <SPAN  CLASS="textit">handle_ajax</SPAN>-Funktion wird überprüft, ob der eingehende Ajax-Aufruf ordnungsgemäß ist und anschließend, ob die übermittelten Parameter korrekt und
+vorhanden sind. Sofern dies nicht zutrifft, übermittelt das PHP-Plugin eine Fehlermeldung an den Benutzerbereich. Im Anschluss erfolgt bei beiden Plugins eine Überprüfung,
+ob ein Nutzer angemeldet ist und ob er über die erforderlichen Berechtigungen verfügt, DokuWiki-Seiten zu bearbeiten.
+Falls das der Fall ist, wird zusätzlich geprüft, ob die zu modifizierende Seite überhaupt existiert und ob auf der Seite ein lock ist, wobei ein lock eine temporäre Sperrung ist,
+die Programme bei Bedarf programmgesteuert setzen können. 
+<BR>
+<BR>
+Zuletzt wird bei beiden Plugins das Datumsformat validiert, mithilfe der selbst geschriebenen Funktion <SPAN  CLASS="textit">is_valid_date_pattern</SPAN>, die in der
+TableLib-Bibliothek implementiert ist. Dieses Datumsformat wird per DokuWiki mit <SPAN  CLASS="textit">getConf()</SPAN> gelesen, das wiederum den Parameter aus der <SPAN  CLASS="textit">default.php</SPAN>-Datei im
+<SPAN  CLASS="textit">conf</SPAN> Verzeichnis extrahiert. 
+<BR>
+<BR>
+Zu Beginn überprüft die Funktion <SPAN  CLASS="textit">inject_lang_js</SPAN>, ob der aktuelle Anzeigemodus von DokuWiki auf show eingestellt ist, was bedeutet,
+dass ausschließlich der reguläre Anzeigemodus aktiviert ist. Falls das der Fall ist, wird das Datumsformat ermittelt und validiert, bevor es zusammen mit dem
+Signiertext und dem Rückgängigtext zurückgegeben wird. Da diese Plugins jedoch mehrere Sprachen unterstützen, werden sowohl die Texte der Schaltflächen
+als auch die Fehlermeldungen in den entsprechenden Übersetzungen mit der Funktion <SPAN  CLASS="textit">getLang</SPAN> (siehe Abbildung <A HREF="#code:getlang"><IMG  ALT="[*]" SRC="crossref.png"></A>)
+automatisch durch DokuWiki in die richtige Sprache übersetzt. Die entsprechenden Übersetzungen wurden zuvor in der jeweiligen <SPAN  CLASS="textit">lang.php</SPAN>-Datei
+definiert und werden über den Parameter, hier 'copy_btn_txt' referenziert.
+
+<DIV class="CENTER"><A ID="code:getlang"></A><A ID="490"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Codeausschnitt getLang</CAPTION>
+<TR><TD><IMG
+ STYLE="height: 13.33ex; " SRC="img5.png"
+ ALT="\begin{figure}\begin{lstlisting}[language=Php]
+$this-&gt;getLang('copy_btn_txt');\end{lstlisting}
+\end{figure}"></TD></TR>
+</TABLE>
+</DIV>
+
+<BR>
+<P>
+
+<H3><A ID="SECTION00742300000000000000">
+Modifizierung</A>
+</H3>
+Nachdem alle Funktionen initialisiert und die Parameter validiert wurden, erfolgt auf der Anwendungsseite eine Überprüfung mithilfe der TableLib-Bibliothek, ob
+die Spaltenindizes tatsächlich in der Tabelle vorhanden sind. Sofern dies zutrifft, wird im SignButton-Plugin der Name des aktuell angemeldeten Nutzers in die
+Namensspalte und das heutige Datum in die Datumsspalte eingetragen. Beim CopyButton-Plugin wird die ausgewählte Reihe in die andere vordefinierte
+Tabelle hinzugefügt und gleichzeitig das aktuelle Datum in die Datumsspalte eingesetzt. Des Weiteren wird die kopierte
+Reihe aus der Kopiertabelle beim CopyButton-Plugin entfernt, sofern zuvor der Parameter <SPAN  CLASS="textit">l</SPAN>=1 oder <SPAN  CLASS="textit">l</SPAN>=2 gesetzt wurde.
+<BR>
+<BR>
+<BR>
+Wenn eine Reihe bereits signiert wurde, wird auf der Benutzerseite eine Rückgängig-Schaltfläche anstelle einer Signierschaltfläche angezeigt. Diese Schaltfläche
+initiiert einen Aufruf, der auf der Anwendungsseite den Namen und das Datum entfernt. Dies wird durch das Datumsformat auf der Benutzerseite identifiziert und
+automatisch dargestellt. 
+<BR>
+<BR>
+Falls eine Reihe kopiert wurde und sich in der Hinzufügetabelle befindet, wird eine Schaltfläche zur Rückgängigmachung angezeigt.
+Bei Bestätigung wird die kopierte Reihe entfernt. Des Weiteren wird, sofern der Parameter <SPAN  CLASS="textit">l</SPAN>=1 oder <SPAN  CLASS="textit">l</SPAN>=2 festgelegt wurde, die Reihe erneut in die ursprüngliche
+Kopiertabelle eingesetzt, wobei die Zahl 1 oder 2 die Position festlegt.
+<BR>
+<BR>
+Abschließend wird das neue Wiki gespeichert und eine Bestätigung in Form der Nachricht SUCCESS übermittelt. Dann wird die aktuelle Seite auf der Benutzerseite neu geladen.
+
+<P>
+
+<H1><A ID="SECTION00750000000000000000">
+Validierung der Erweiterungen</A>
+</H1>
+Im Rahmen dieser Arbeit wurden die entwickelten Plugins SignButton und CopyButton einer
+umfassenden Validierung unterzogen, um ihre Eignung für den Einsatz in einem ISO-13485-konformen
+Qualitätsmanagementsystem nachzuweisen. Die Validierung erfolgte gemäß der institutsinternen Prozessbeschreibung
+„Validierung von Software“ des Instituts für Medizinische Informatik der Universität Münster. Grundlage
+bildeten dabei die Vorgaben der GAMP 5-Leitlinie in Kombination mit risikobasierten Prüfszenarien.
+<BR>
+Die Validierung umfasste unter anderem:
+
+<UL>
+<LI>die Prüfung der korrekten Syntaxeinbindung in DokuWiki-Seiten,
+</LI>
+<LI>die Validierung der Interaktion mit Tabellenstrukturen,
+</LI>
+<LI>die Prüfung der Rechte- und Rollenkonzepte,
+</LI>
+<LI>die Reaktion auf fehlerhafte Konfigurationen (zum Beispiel ungültige Datumsformate),
+</LI>
+<LI>die Sicherstellung der Revisions- und Nachvollziehbarkeit über den DokuWiki-Änderungsverlauf.
+</LI>
+</UL>
+Sämtliche Testfälle wurden erfolgreich durchgeführt. Für beide Plugins konnte nachweislich bestätigt werden,
+dass sie bei korrekter Konfiguration die spezifizierten Funktionen verlässlich, reproduzierbar und regelkonform
+erfüllen. Die Validierung und die Ergebnisse sind im Anhang dieser Arbeit vollständig dokumentiert (siehe Abschnitt
+A.1.4 und A.2.4). Der geplante Revalidierungszeitpunkt wurde gemäß institutsinterner Richtlinie auf ein Jahr
+festgelegt.
+<BR>
+<BR>
+Die erfolgreiche Validierung belegt die normgerechte Umsetzung aller qualitäts- und sicherheitsrelevanten Anforderungen.
+Damit sind die Plugins zur produktiven Nutzung im regulierten Umfeld freigegeben.
+
+<P>
+
+<H1><A ID="SECTION00760000000000000000">
+Beispielhafte Nutzung</A>
+</H1>
+Um eine Erweiterung produktiv zu nutzen, muss der Administrator nur eine Tabelle im DokuWiki mit der entsprechend konfigurierten Syntax kennzeichnen.
+Nach der Aktivierung der Plugins und der TableLib-Bibliothek werden automatisch die Bestätigungsschaltflächen angezeigt. Mitarbeitende können
+dann durch einfache Benutzerinteraktionen ihre Teilnahme dokumentieren oder eine Reihe in eine andere Tabelle mit dem ausgefüllten
+Datum kopieren.
+Ein typischer Anwendungsfall wäre etwa die Dokumentation einer Schulungsteilnahme oder einer internen Sicherheitsunterweisung.
+In Kombination mit dem Namens- und Zeitstempel erfüllt diese Vorgehensweise die Anforderungen an die Dokumentation gemäß ISO 13485.
+
+<P>
+
+<H1><A ID="SECTION00770000000000000000">
+Modifizierbarkeit und Anpassung</A>
+</H1>
+Die Implementierungen wurden modular strukturiert, um die Realisierung zukünftiger Erweiterungen, etwa der Integration digitaler Signaturen,
+mit geringem Aufwand zu gewährleisten. Zentrale Parameter, wie das Datumsformat, lassen sich konfigurieren, um eine maximale Flexibilität in
+diversen Anwendungskontexten zu gewährleisten.
+
+<P>
+
+<H1><A ID="SECTION00780000000000000000">
+Sicherheit und Eingrenzung der Funktionen</A>
+</H1>
+Obwohl die Erweiterungen primär für den internen Gebrauch konzipiert sind, wurden grundlegende Sicherheitsaspekte berücksichtigt:
+<BR>
+<BR>
+<BR><SPAN  CLASS="textbf">Zugriffskontrolle</SPAN>
+<BR>
+Die Ausführung der Erweiterungen setzt eine aktive Sitzung voraus. Nicht angemeldete Personen haben keine Möglichkeit, Benutzerdaten einzutragen.
+Die Aktionen sind nur für angemeldete Nutzer verfügbar, wobei das Plugin auch noch nach den erforderlichen Rechten, explizit nach den erforderlichen Schreibrechten
+überprüft.
+<BR>
+<BR>
+<BR><SPAN  CLASS="textbf">Manipulationssicherheit</SPAN>
+<BR>
+Die Einträge erfolgen anwendungsseitig und werden anschließend durch das Speichern der Seite persistiert. Es wird der Name des angemeldeten Nutzers und das aktuelle Datum
+benutzt. Beide Informationen werden automatisch auf der Anwendungsseite hinzugefügt, ohne dass der angemeldete Nutzer darauf Zugriff hat.
+<BR>
+<BR>
+<BR><SPAN  CLASS="textbf">Revisionssicherheit</SPAN>
+<BR>
+Durch die Speicherung als normale DokuWiki-Änderung wird jede Interaktion versioniert und dokumentiert. Dies erfüllt die Anforderungen an Nachvollziehbarkeit und
+Auditierbarkeit gemäß ISO 13485.
+<BR>
+<BR>
+<BR><SPAN  CLASS="textbf">Minimale Abhängigkeit</SPAN>
+<BR>
+Es wird auf die Nutzung externer Bibliotheken verzichtet, um mögliche Sicherheitsrisiken durch Abhängigkeiten zu minimieren. Es werden ausschließlich
+die selbstentwickelte TableLib-Bibliothek sowie einige Funktionen aus Standardbibliotheken wie die Regex-Funktionalität verwendet.
+<BR>
+<BR>
+<BR><SPAN  CLASS="textbf">Kopiersicherheit</SPAN>
+<BR>
+Im Rahmen der Kopieroperationen wird zudem überprüft, ob in der gegenwärtigen Reihe die ::: Elemente vorhanden sind. Diese dienen dazu, die leere Spalte anzuzeigen,
+sofern die Werte mit den zuvor genannten übereinstimmen. Da dies jedoch bei einer Übertragung in eine andere Tabelle nicht immer gewährleistet ist, werden gezielt
+die entsprechenden Spaltenelemente von der oberen Reihe identifiziert und mit den richtigen Werten ersetzt.
+<BR>
+<BR>
+<BR><SPAN  CLASS="textbf">Löschsicherheit</SPAN>
+<BR>
+Bei der Durchführung einer Löschoperation, bei der die oberste Reihe entfernt wird und die Spalten der unteren Reihe davon erben, tritt ein Fehler auf, der durch ::: verursacht wird.
+Dies wird verhindert, indem die entsprechenden Spaltenwerte automatisch in die untere Zeile der entfernten Spalte übertragen werden.
+
+<P>
+
+<H1><A ID="SECTION00800000000000000000">
+Diskussion</A>
+</H1>
+
+<P>
+
+<H1><A ID="SECTION00810000000000000000">
+Designentscheidungen</A>
+</H1>
+Die Entwicklung der Plugins basiert auf einer fundierten und differenzierten Auswahl von Technologien und Architekturmustern, die sowohl funktionale Anforderungen
+als auch Wartbarkeits- und Regulierungsaspekte adäquat adressieren. Ein zentraler Aspekt bestand darin, die Funktionalitäten vollständig mit Hilfe der Implementierung
+sogenannter Action-Plugins und Syntax-Plugins innerhalb von DokuWiki zu realisieren.
+Die beiden Plugin-Kategorien erlauben eine gezielte Intervention in bestehende hooks und erweitern so die Syntax des Wikisystems, ohne dabei die
+fundamentalen Funktionen zu modifizieren. Dieser Ansatz fördert die Modularität des Systems und gewährleistet so die Kompatibilität mit zukünftigen Versionen des DokuWiki-Systems.
+
+<P>
+
+<H2><A ID="SECTION00811000000000000000">
+Technologische Entscheidungen</A>
+</H2>
+Die Verwendung von PHP für anwendungsseitige Initialisierungen in Kombination mit der benutzerseitigen Steuerung mittels JavaScript ermöglicht eine präzise Trennung
+der Verantwortungsbereiche. Ferner wurde CSS benutzt, um die Schaltflächen an den spezifischen Positionen mit adäquaten Größen darzustellen.
+Die Nutzung von bereits vorhandenen hooks machte es möglich, auf umfangreiche Änderungen am Kern von DokuWiki zu verzichten.
+Im Rahmen der Interaktion zwischen der Anwendungs- und Benutzerseite wurden spezielle Ajax-Endpunkte verwendet, die bei jeder Eingabe einer gründlichen Validierung
+und Verifizierung unterzogen werden. Um sicherzustellen, dass die Kommunikation zwischen den beiden Schichten sicher verläuft, werden alle Nachrichten im JSON-Format kodiert.
+
+<P>
+
+<H2><A ID="SECTION00812000000000000000">
+Vorteile der Architektur</A>
+</H2>
+Mittels einer eigens konzipierten Syntax wurde eine anwenderfreundliche Methode implementiert, die eine korrekte Kennzeichnung von Tabellen ermöglicht.
+Es genügt, eine Markierung entweder unmittelbar vor einer Tabelle und im Anschluss an eine oder mehrere Tabellen anzubringen.
+Danach wird die Syntax überprüft und im Falle fehlerhafter Einstellungen eine Fehlermeldung angezeigt.
+<BR>
+<BR>
+Die Integration in bestehende hooks ermöglichte eine optimale Nutzung der vorhandenen Struktur von DokuWiki.
+Die Integration in die bestehende Plugin-Infrastruktur sorgt für einen deutlich geringeren Wartungsaufwand. Außerdem lässt sich die Funktionalität
+unkompliziert erweitern, indem man zusätzliche Ereignisse registriert oder nur wenige Änderungen am DOM vornimmt.
+Zur einheitlichen und standardisierten Implementierung der Funktionen für Tabellenmanipulationen wurde eine spezielle Bibliothek konzipiert.
+Dadurch wird eine eindeutige Abgrenzung der Verantwortungsbereiche gefördert und zugleich werden die Instandhaltungsprozesse der jeweiligen Module optimiert.
+<BR>
+<BR>
+Ein weiterer Vorteil der gewählten Architektur ist, dass sowohl beim Kopieren als auch beim Löschen in beiden Plugins die Sicherheit gewährleistet ist.
+Wenn eine Reihe ohne die Überprüfung der
+Existenz von ::: Elementen kopiert wird, kann es zu einem Bruch kommen, da die ::: Elemente einen Trennstrich vermeiden und so den Eindruck erwecken,
+dass die Inhalte der Spalten identisch mit denen der darüberliegenden Spalte sind. Dies ist jedoch nicht mehr der Fall, wenn eine Reihe in eine andere Tabelle
+übertragen wird, die unterschiedliche Reihen enthält. Aus diesem Grund werden gezielt die entsprechenden Spaltenelemente aus den oberen Reihen identifiziert und
+mit den ::: Elementen getauscht, selbst wenn mehrere Reihen über der zu kopierenden Reihe die ::: Elemente enthalten.
+<BR>
+<BR>
+Das Entfernen einer Reihe kann ähnliche Probleme mit den ::: Elementen verursachen, doch wird auch in diesem Fall das Verhalten automatisch gehandhabt.
+Wenn die unteren Reihen
+von der zu löschenden Reihe die Spalteninhalte durch die ::: Elemente erben und diese Reihe entfernt wird, übernehmen die unteren Reihen fälschlicherweise die
+Inhalte der oberen Reihe, was nicht richtig ist. Die Sicherstellung erfolgt durch die automatische Übertragung der relevanten Inhalte in die unmittelbar
+unterhalb der zu löschenden Zeile befindliche Reihe, wodurch ein Bruch vermieden wird.
+
+<P>
+
+<H1><A ID="SECTION00820000000000000000">
+Limitationen</A>
+</H1>
+Die gewählte Herangehensweise hat jedoch auch ihre Grenzen.
+<BR>
+Die Flexibilität bei der Konfiguration der Parameter in der Syntax kann dazu führen, dass unzutreffende Tabellen ausgewählt werden. Auf der Anwendungsseite wird überprüft,
+ob die ausgewählte Tabelle vorhanden ist; jedoch besteht keine Möglichkeit, zu verifizieren, ob es sich dabei auch um die korrekte Tabelle handelt. Die Identifikation der
+korrekten Tabelle ist erst nach der Festlegung der Parameter möglich, indem geschaut wird, ob neben der Tabelle Schaltflächen angezeigt werden.
+Dies trifft ebenfalls auf die Spaltenindizes zu, die ebenfalls individuell angepasst werden können. 
+<BR>
+<BR>
+Wie bereits zuvor erwähnt wird auch überprüft, ob der Spaltenindex in der ausgewählten Tabelle vorhanden ist. Allerdings gibt es keine Möglichkeit festzustellen,
+ob es sich um die korrekte Spalte handelt, beispielsweise um die Namensspalte oder die Datumsspalte. Erst nach der Signierung lässt sich herausstellen, ob die richtigen
+Spalten konfiguriert wurden. Sollte sich herausstellen, dass das Datum und der Name in der falschen Spalte platziert wurden und die vorherigen Einträge
+überschrieben wurden, ist es erforderlich, die Inhalte der Spalten manuell zu löschen.
+<BR>
+<BR>
+Das Gleiche trifft auch auf das CopyButton-Plugin zu, da in diesem Fall ebenfalls die Kopiertabelle und andere Parameter im Voraus manuell in der Syntax konfiguriert werden müssen.
+Wenn eine fehlerhafte Tabelle konfiguriert wird, die zwar existiert, jedoch nicht die gewünschte ist, werden die Daten in eine falsche Tabelle übertragen, was einen
+manuellen Eingriff erforderlich macht.
+<BR>
+<BR>
+Die Rücknahme der Signatur von signierten Reihen erfolgt anhand des im Datumsfeld eingetragenen Datumsformats.
+Falls nach der Unterzeichnung das Datumsformat in den Einstellungen des Plugins angepasst wird oder die Datumsspalte in der Konfiguration der
+Syntax modifiziert wird, wird die signierte Zeile nicht mehr erkannt. In diesem Fall wird fälschlicherweise eine Schaltfläche zum Signieren anstelle einer
+Schaltfläche zum Rückgängigmachen angezeigt.
+<BR>
+<BR>
+Ein weiteres Anliegen betrifft die Sicherheit der Kopierfunktion des CopyButton-Plugins. Wenn eine Reihe kopiert wird, die die Inhalte der Spalten von der
+darüberliegenden Reihe übernimmt, geschieht dies unter Verwendung des Parameters :::. In diesem Fall werden die Inhalte der Spalten in den oberen Reihen erkannt
+und in der entsprechenden Spalte ergänzt. Nach dem Übertragen in eine andere Tabelle ist jedoch eine Spalte in der oberen Zeile sehr wahrscheinlich nicht identisch,
+weshalb ein Trennstrich angezeigt wird. Wenn jedoch zufällig die obere Reihe identisch ist, wird dennoch ein Trennstrich angezeigt (siehe Abbildung <A HREF="#img:table"><IMG  ALT="[*]" SRC="crossref.png"></A>),
+da die ::: Elemente nicht mehr existieren.
+
+<DIV class="CENTER"><A ID="img:table"></A><A ID="575"></A>
+<TABLE>
+<CAPTION class="BOTTOM"><STRONG>Figure:</STRONG>
+Beispiel eines fehlerhaften Trennstrichs trotz der gleichen Spaltenelemente in einer Tabelle.</CAPTION>
+<TR><TD><IMG
+  WIDTH="632" HEIGHT="110" STYLE=""
+ SRC="./broken-table.jpg"
+ ALT="Image broken-table"></TD></TR>
+</TABLE>
+</DIV>
+
+<BR>
+<BR>
+Das Gleiche gilt für das Rückgängigmachen der Kopieroperation. Da die ::: Elemente durch die entsprechenden Spalteninhalte ersetzt wurden, sind sie
+nicht mehr vorhanden. Wenn sie jedoch erneut in die ursprüngliche Tabelle eingefügt werden, erscheinen die Trennstriche über oder unter der Zeile (siehe Abbildung <A HREF="#img:table"><IMG  ALT="[*]" SRC="crossref.png"></A>), selbst wenn
+die obere Zeile identische Spalteninhalte aufweist.
+<BR>
+<BR>
+Die Wiederherstellung des ursprünglichen Zustands nach einer Kopieroperation ist ein integraler Bestandteil des CopyButton-Plugins. Es ist möglich, eine kopierte
+Reihe, in der das Datum eingetragen ist, erneut in die vorherige Tabelle einzufügen, jedoch ohne das Datum zu berücksichtigen. Die anspruchsvolle Speicherung von
+Daten in DokuWiki erschwert es jedoch, was dazu führt, dass die kopierte Zeile entweder am oberen oder am unteren Ende der Tabelle eingefügt wird, da die dauerhafte Speicherung von
+Daten mit erheblichen Schwierigkeiten verbunden ist. Dies gilt ebenfalls für die Stornierung der Signieroperation. Es ist nur möglich, die Namens- und Datumsspalte
+zu leeren, ohne jeglichen Inhalt zu hinterlassen, und es besteht keine Möglichkeit im Plugin, den vorherigen Zustand wiederherzustellen.
+<BR>
+<BR>
+Ein weiteres potenzielles Anliegen stellt die Abhängigkeit der TableLib-Bibliothek dar. Wenn diese gelöscht oder deaktiviert wird, funktionieren
+die beiden Erweiterungen nicht mehr. Auch wenn die Bibliothek fehlerhaft installiert wurde, beispielsweise an einem falschen Speicherort,
+kann sie nicht mehr lokalisiert werden, was zu einer Fehlermeldung führt.
+
+<P>
+
+<H1><A ID="SECTION00830000000000000000">
+Erweiterungspotenziale</A>
+</H1>
+Die Analyse der Beschränkungen sowie der regulatorischen Anforderungen im spezifischen Einsatzkontext offenbart ein breites Spektrum potenzieller Erweiterungen,
+die technische und funktionale Optimierungen ermöglichen würden.
+<BR>
+<BR>
+Aktuell ist es jedem registrierten Nutzer gestattet, der über die notwendigen Schreibrechte verfügt, eine Reihe zu signieren oder zu kopieren.
+Eine Erweiterung zur Festlegung konkreter Nutzerrollen würde eine feinere Steuerung erlauben und gleichzeitig die Sicherheit und Verlässlichkeit der eingetragenen Daten verbessern.
+Ferner wäre es zweckmäßig, einen Mechanismus für das Signieren zu integrieren, um so die rechtssichere Dokumentation von Schulungsnachweisen zu gewährleisten.
+In diesem Zusammenhang könnten vorhandene Public-Key-Infrastrukturen (PKI)<A ID="tex2html24"
+  HREF="footnode.html#foot580"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> eingesetzt werden, um Modifikationen eindeutig einem Nutzer zuzuordnen und diese dauerhaft zu speichern.
+<BR>
+<BR>
+Eine zusätzliche Möglichkeit zur Optimierung der Plugins wäre die Verbesserung des Rückgängig-Mechanismus. Es wäre möglich, in der Historie von DokuWiki nachzusehen,
+welche Einträge vor dem angegebenen Datum existierten und diese anstelle der leeren Elemente in die entsprechende Spalte einzutragen.
+Dies könnte jedoch auf Schwierigkeiten stoßen, da nicht nachvollzogen werden kann, welche Elemente die korrekten Werte der Spalte darstellen,
+wodurch möglicherweise ein fehlerhafter Wert erneut in die Spalte eingetragen werden könnte.
+<BR>
+<BR>
+Darüber hinaus könnte eine weitere Optimierung den Versuch zur Lösung der ::: Problematik darstellen. Man könnte überprüfen, ob die Spaltenelemente
+der aktuellen Zeile mit denen der vorhergehenden übereinstimmen. Falls dies der Fall ist, könnten die gleichen Inhalte der aktuellen Reihe durch die ::: Elemente ersetzt werden,
+um die Anzeige eines Trennstrichs zu vermeiden. 
+<BR>
+<BR>
+Zuletzt könnte eine Erweiterung darin bestehen, die Bestätigung des Signierens einer Reihe mittels E-Mail-Kommunikation zu verschicken. Nach dem Signieren einer Reihe
+durch den Nutzer könnte automatisch eine E-Mail mit der Bestätigung an die E-Mail-Adresse des Nutzers gesendet werden, um ihm eine digitale Bestätigung zukommen zu lassen.
+Dies würde jedoch eine externe Anbindung an einen E-Mail-Server voraussetzen, was wiederum die Komplexität deutlich erhöht und somit eines der Ziele beeinträchtigt.
+
+<P>
+
+<H1><A ID="SECTION00840000000000000000">
+Alternativen und Related Work</A>
+</H1>
+Die Implementierung eines Plugins zur Validierung von Schulungsnachweisen in DokuWiki erfolgt nicht unabhängig von anderen Faktoren. In der Open-Source- sowie in
+der kommerziellen Softwarelandschaft sind zahlreiche Systeme verfügbar, die vergleichbare Anforderungen erfüllen – sei es durch elektronische Signaturen,
+Audit-Trails<A ID="tex2html25"
+  HREF="footnode.html#foot582"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A>
+oder automatisierte Funktionen im Schulungsmanagement. Ein solches System ist Confluence von Atlassian [#!confluence!#]. Es handelt sich um ein kommerzielles, weit
+verbreitetes Unternehmenswiki mit einer umfangreichen Pluginarchitektur. Durch den Einsatz von Erweiterungen wie Comala Document Management [#!cdm-confluence!#]
+können Arbeitsflüsse, Überprüfungsprozesse und elektronische Genehmigungen realisiert werden. 
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+Confluence verfügt außerdem über eine umfassende Berechtigungsverwaltung,
+eine REST-Programmierschnittstelle<A ID="tex2html26"
+  HREF="footnode.html#foot585"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> sowie Schnittstellen zu JIRA<A ID="tex2html27"
+  HREF="footnode.html#foot604"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> und weiteren Unternehmenssystemen [#!doc-confluence!#]. 
+<BR>
+<BR>
+Zusätzliche QMS-Lösungen umfassen NEXUS [#!nexus!#], TrackWise [#!trackwise!#] und MasterControl [#!mastercontrol!#]. Diese sind spezialisierte kommerzielle Lösungen
+für Qualitätsmanagementsysteme, die eine umfassende Konformität mit Standards wie ISO 13485 oder 21 CFR Part 11 gewährleisten. Sie umfassen digitale Signaturen,
+Benutzerrollen, Prüfprotokolle, automatische Eskalationen sowie Unterstützung bei der Validierung. Diese Systeme sind jedoch teuer, umfangreich und bieten selten
+die Möglichkeit zur offenen Anpassung.
+<BR>
+<BR>
+Im Gegensatz zu den prioritären Lösungen bieten die hier präsentierten DokuWiki-Plugins eine gezielt minimalistische Alternative. Ihr Fokus liegt
+auf einer unkomplizierten Inbetriebnahme, der Erweiterbarkeit durch DokuWiki-Mechanismen sowie auf einer transparenten, quelloffenen Struktur. Im Gegensatz zu den
+erwähnten Systemen konzentrieren sich die entwickelten Lösungen nicht auf Profit und mangelnde Transparenz, sondern auf dokumentierte Software, die in bestehende
+Infrastrukturen leicht integriert werden kann. Die entscheidenden Differenzierungsmerkmale sind:
+
+<UL>
+<LI>Transparenz und Nachvollziehbarkeit: Der Quellcode ist in vollem Umfang zugänglich und anpassbar.
+</LI>
+<LI>Unkomplizierte Integration: Es sind keine externen Dienste oder Datenbanken notwendig.
+</LI>
+<LI>Fokussierte Funktion: Ausgerichtet auf den Anwendungsbereich „Schulungsbestätigung“.
+</LI>
+</UL>
+
+<P>
+
+<H2><A ID="SECTION00841000000000000000">
+Verwandte Arbeiten</A>
+</H2>
+Im DokuWiki-Ökosystem gibt es eine Vielzahl von Plugins, die teilweise vergleichbare Funktionen wie die in dieser Arbeit entwickelten Plugins bereitstellen oder alternative
+Lösungsansätze anbieten. Innerhalb der DokuWiki-Community sind Plugins wie bureaucracy [#!bureaucracy!#], cryptsign [#!cryptsign!#] und edittable [#!edittable!#]
+präsent, welche zwar teilweise vergleichbare Zielsetzungen anstreben, jedoch divergente technische Implementierungsansätze aufweisen. 
+<BR>
+Das Signieren einzelner Wiki-Seiten
+wird durch cryptsign ermöglicht, jedoch erfolgt dies ohne einen strukturierten Tabellenkontext oder die Berücksichtigung von Benutzerrollen. Auch bureaucracy ermöglicht
+Formularprozesse, jedoch ohne tabellarisch integrierte Bestätigungsmuster.
+<BR>
+<BR>
+Ein weiteres potenzielles Plugin könnte das struct-Plugin [#!struct-plugin!#] sein. Das struct-Plugin stellt eine umfassende Lösung zur Handhabung von strukturierten Daten in DokuWiki dar.
+Es ergänzt das Wiki um Funktionen einer relationalen Datenbank und ermöglicht die Definition von Schemata, Datentypen sowie Abfragen und Präsentationen. Theoretisch
+wäre es möglich, mit struct auch tabellenbasierte Bestätigungsprozesse zu implementieren, beispielsweise durch die Verwendung von Pflichtfeldern, Änderungsprotokollen
+und individuell gestaltbaren Formularen. Die Einrichtung erfordert jedoch einen beträchtlichen Konfigurationsaufwand und richtet sich hauptsächlich an erfahrene Anwender.
+Darüber hinaus besteht auch in diesem Fall kein Mechanismus zur unmittelbaren Unterzeichnung von Einträgen oder zur rollenbasierten Genehmigung in Echtzeit. Im Hinblick
+auf die Notwendigkeit der Validierung und die regulatorischen Vorgaben wäre eine Ergänzung durch zusätzliche Mechanismen erforderlich.
+<BR>
+<BR>
+In der DokuWiki-Community sind auch Plugins wie approve [#!approve!#], workflow [#!workflow!#] oder log [#!log-plugin!#] vertreten, die sich durch einen experimentellen
+Status auszeichnen oder nicht mehr aktiv gewartet werden. Diese Plugins implementieren teilweise Mechanismen zur Durchführung von Überprüfungsprozesse, zur Abbildung
+von Statusverläufen sowie zur Dokumentation von Änderungshistorien. Eine Vielzahl dieser Plugins weist jedoch Defizite in der Wartung, unzureichende Internationalisierung
+oder fehlende Kompatibilität mit aktuellen DokuWiki-Versionen auf. 
+<BR>
+<BR>
+Darüber hinaus gestaltet sich die Integration externer Werkzeuge zur Signaturerfassung – beispielsweise durch externe JavaScript-Funktionalitäten oder über E-Mail-Abläufe
+– als herausfordernd in Bezug auf die Anforderungen an Systemintegration, Datenpersistenz und regulatorische Nachvollziehbarkeit.
+
+<P>
+
+<H2><A ID="SECTION00842000000000000000">
+Vergleich: Open-Source und kommerziell</A>
+</H2>
+Ein zentraler Aspekt bei der Evaluation eines passenden Systems zur Verwaltung von Schulungsnachweisen ist die differenzierte Gegenüberstellung von Open-Source-Lösungen
+und kommerziellen Softwareprodukten. Beide Kategorien bringen spezifische Vor- und Nachteile mit sich, die sich besonders deutlich im Kontext regulierter Umgebungen
+und bei der Frage nach langfristiger Wartbarkeit, Erfüllung der Anforderungen und Flexibilität zeigen. 
+<BR>
+<BR>
+Open-Source-Systeme wie das hier vorgestellte DokuWiki-Plugin überzeugen primär durch ihre Quelloffenheit und Anpassungsfähigkeit.
+Der vollständige Zugriff auf den Quellcode ermöglicht Organisationen die Durchführung spezifischer Anpassungen, ohne auf externe Dienstleister angewiesen zu sein.
+Die gegebene Transparenz ist besonders in sicherheitskritischen Anwendungen vorteilhaft, da so Überprüfungen und gezielte Erweiterungen am Quellcode ermöglicht werden.
+Zudem entfallen bei Open-Source Projekten meist Lizenzkosten, was einen signifikanten ökonomischen Vorteil darstellt – gerade für kleinere Unternehmen oder Forschungseinrichtungen
+mit begrenzten finanziellen Mitteln.
+<BR>
+<BR>
+Kommerzielle Systeme wie NEXUS, TrackWise oder MasterControl überzeugen hingegen durch ihre umfassende Funktionstiefe und ihre oft direkte Ausrichtung an regulatorischen
+Vorgaben wie ISO 13485 oder 21 CFR Part 11. Diese Systeme bieten in der Regel integrierte Audit-Trails, digitale Signaturen, umfangreiche Rollen- und Rechtekonzepte
+sowie standardisierte Validierungsunterstützung. Für Unternehmen, die zwingend auf zertifizierte Prozesse und formalisierte Abläufe angewiesen sind, ist diese konforme
+Ausgestaltung ein entscheidendes Kriterium. Darüber hinaus steht bei kommerziellen Lösungen häufig eine professionelle Betreuung zur Verfügung, die schnelle Antwortzeiten,
+definierte Service-Level-Agreements (SLAs)<A ID="tex2html28"
+  HREF="footnode.html#foot602"><SUP><IMG  ALT="[*]" SRC="footnote.png"></SUP></A> und Schulungsangebote umfasst – ein Faktor, der besonders in produktiven Umgebungen von
+Bedeutung ist.
+<BR>
+<BR>
+Nichtsdestotrotz ist die Anpassbarkeit bei kommerziellen Lösungen oftmals eingeschränkt. Änderungen oder Erweiterungen sind nur über definierte Schnittstellen (zum Beispiel REST-Programmierschnittstellen)
+möglich und tiefgreifende Modifikationen müssen meist durch den Anbieter selbst oder in teuren Projekten realisiert werden. Im Gegensatz dazu können Open-Source-Lösungen intern weiterentwickelt und direkt
+in die bestehende IT-Infrastruktur integriert werden. Auch im Hinblick auf die Abhängigkeit von Drittanbietern schneiden quelloffene Systeme besser ab. Sie ermöglichen langfristige Unabhängigkeiten und
+vermeiden Anbieterbindungen. 
+<BR>
+<BR>
+Zusammenfassend lässt sich sagen, dass Open-Source-Ansätze, wie die hier vorgestellten Plugins besonders für Organisationen geeignet sind, die über die nötige IT-Kompetenz verfügen, regulatorische Anforderungen
+selbst umsetzen zu können und ein hohes Maß an Flexibilität schätzen. Kommerzielle Systeme bieten demgegenüber höhere Rechtssicherheit, integrierte Rechtskonformitätsmechanismen und professionelle Betreuung. Allerdings
+zu einem deutlich höheren Preis und mit geringerer Anpassungsfreiheit.
+
+<P>
+
+<H1><A ID="SECTION00850000000000000000">
+Reflexion</A>
+</H1>
+Die entwickelten Lösungen erfüllen die vorgegebenen Zielkriterien, indem sie eine benutzerfreundliche und effiziente Methode zur Dokumentation von Schulungsbestätigungen im Rahmen von DokuWiki implementieren.
+Sie lassen sich leicht in bestehende DokuWiki-Infrastrukturen integrieren und implementieren gezielt technische Maßnahmen, um eine effiziente Ausführung sowie eine hohe Akzeptanz seitens der Nutzer zu gewährleisten.
+Dabei wurde bewusst für die Gewährleistung der Wartbarkeit und Transparenz auf komplexe externe Abhängigkeiten verzichtet.
+Eine eigene Bibliothek wurde zudem entwickelt, um die benötigten Abhängigkeiten direkt an einem zentralen Ort zu verwalten. 
+<BR>
+<BR>
+Retrospektiv zeigt sich, dass der minimalistische Ansatz und die klare Trennung der Abhängigkeiten im Alltag sehr vielseitig einsetzbar sind und sich auch von regulatorischen Vorgaben nicht einschränken lassen.
+Doch gibt es derzeit noch keine Umsetzung der detaillierten Zugriffskontrolle oder digitaler Signaturen. Diese Funktionen sind noch nicht implementiert, gelten aber nicht als zwingend notwendig.
+Die Architektur bietet dennoch eine solide Grundlage, auf der noch zusätzliche technische Erweiterungen modular implementiert werden können. 
+<BR>
+<BR>
+Ein weiteres Erkenntnis dieser Arbeit ist, dass selbst in scheinbar einfachen Anwendungsszenarien wie der Dokumentation von Schulungsnachweisen eine hohe Anzahl an Anforderungen zusammentrifft, die sowohl technische als auch organisatorische Aspekte umfassen.
+Weiterverfolgte Themen wie die Regelungen der 21 CFR Part 11 und der ISO 13485 haben gezeigt, dass technische Umsetzung und Vorschriftenumsetzung in einem engen Zusammenhang stehen. Ein regulierteres Plugin muss über die reine Funktionalität hinausgehen.
+Es muss auch die Validierbarkeit, Nachvollziehbarkeit und Integrität rechtlicher Vorschriften gewährleisten.
+<BR>
+<BR>
+Darüber hinaus hat der Vergleich mit alternativen Lösungen – sowohl im Open-Source-Bereich als auch im kommerziellen Sektor – gezeigt, dass der Wert einer Software nicht nur in ihrer Funktionalität zu finden ist, sondern
+auch in ihrer Integration in organisatorische Abläufe, Unterstützungsstrukturen und regulatorische Vorgaben. Die entwickelten Plugins schließen eine bislang unberücksichtigte Lücke innerhalb des DokuWiki-Systems, indem
+sie eine tabellarische, bearbeitbare Bestätigungs- oder Kopierfunktion mit einer benutzerinteraktiven Integration von Schaltflächen kombinieren. In diesem Zusammenhang bieten sie einen erheblichen Nutzen, insbesondere
+für kleinere bis große Organisationen, Forschungseinrichtungen oder Pilotprojekte, die auf Open-Source-Lösungen angewiesen sind und gleichzeitig ein gewisses Maß an Prozessdokumentation umsetzen möchten. 
+<BR>
+<BR>
+<BR>
+Die Untersuchung hat außerdem gezeigt, wie wichtig eine klare Differenzierung zwischen einem Prototyp und dem Endprodukt ist.
+Die gegenwärtige Implementierung repräsentiert eine detaillierte Machbarkeitsanalyse, die
+Möglichkeiten für zukünftige Entwicklungen aufzeigt – sei es durch krytographische Signatur, differenzierte Zugriffsrechte oder erweiterte Validierungsverfahren. Zukünftige Forschungsinitiativen oder ergänzende
+Softwaremodule könnten auf den vorliegenden Erkenntnissen aufbauen und die Etablierung transparenter, jedoch methodisch fundierter Qualitätsmanagementsysteme in Form von Wikis vorantreiben. 
+<BR>
+<BR>
+Die Fokussierung auf die wesentlichen Funktionen sorgt dafür, dass die Plugins einfach zu bedienen sowie intuitiv sind.
+Doch zeigt die Analyse gleichzeitig Einschränkungen hinsichtlich der Sicherheit und Nachvollziehbarkeit auf.
+In akademischen wie auch praktischen Kontexten ist es von großer Bedeutung, diese Einschränkung zu erkennen und potenzielle Gefahren transparent zu kommunizieren.
+Auf diese Weise kann langfristig ein Beitrag zu einer nachhaltigen und verantwortungsvollen Digitalisierung im Qualitätsmanagement geleistet werden.
+<BR>
+<BR>
+Das abschließende Kapitel fasst die Arbeitsergebnisse komprimiert zusammen, benennt explizit die Limitationen und präsentiert einen Ausblick auf potenzielle Weiterentwicklungen.
+
+<H1><A ID="SECTION00900000000000000000">
+Fazit</A>
+</H1>
+Im Kontext dieser Bachelorarbeit erfolgte die Entwicklung zweier Plugins für DokuWiki, die eine automatisierte sowie benutzerfreundliche Validierung
+von Schulungsmaßnahmen im Rahmen eines Qualitätsmanagementsystems gewährleisten. Die Implementierung einer Schaltfläche in jeder relevanten Tabellenzeile
+erlaubt es den Nutzern, mittels eines einzigen Klicks ihren Namen und das gegenwärtige Datum zu erfassen oder eine Reihe in eine andere Tabelle zu kopieren.
+Diese scheinbar einfachen Funktionalitäten erfüllen zentrale Anforderungen an die Nachvollziehbarkeit und an die Revisionssicherheit gemäß ISO 13485.
+<BR>
+<BR>
+Die Implementierungen demonstrieren, dass es unter Nutzung begrenzter technischer Ressourcen und unter Beachtung offener Standards möglich ist, eine
+praxisnahe Lösung zu konzipieren, die in regulierten Domänen wie der Medizintechnik einen signifikanten Mehrwert generiert. Die gezielte Reduktion
+auf fundamentale Funktionalitäten – exemplarisch das automatische Ausfüllen zweier Felder – resultierte in einer Lösung, die durch Stabilität,
+Nachvollziehbarkeit und Wartungsfreundlichkeit gekennzeichnet ist. Gleichzeitig offenbart sich an mehreren Stellen auch das Verbesserungspotenzial.
+Diverse potenzielle Anforderungen – darunter digitale Signaturen, E-Mail Bestätigung und differenzierte Zugriffsrechte – fanden wenig Berücksichtigung,
+was die Tauglichkeit für hochsensible Anwendungsfälle negativ beeinflusst. 
+<BR>
+<BR>
+Obgleich die Plugins gewissen Einschränkungen unterliegen, gewährleisten sie eine zuverlässige Erfüllung der Kernfunktionen und ermöglichen eine leichte Integration
+in bestehende DokuWiki-Instanzen bei moderatem Implementierungsaufwand. Die Implementierungen beinhalten sämtliche in der Zieldefinition spezifizierten Funktionen,
+insbesondere die dynamische Integration von Bestätigungsschaltflächen in Tabellen, die Möglichkeit des Rückgängigmachens von Eintragungen, die dynamische Ergänzung von
+Kopierschaltflächen in Tabellen sowie die optionale Löschung der Kopiersätze.
+Die vorliegende Lösung repräsentiert eine praxisorientierte Option für Organisationen, die nach einfachen, kosteneffizienten und transparenten Dokumentationsprozessen streben,
+insbesondere in kleinen bis großen Unternehmen sowie im Gesundheitswesen. 
+<BR>
+<BR>
+<BR>
+<BR>
+Diese Arbeit zeigt, dass der Open-Source-Ansatz, gekoppelt mit einer robusten Softwarearchitektur und einer detaillierten Bedarfsanalyse, befähigt ist,
+marktfähige Alternativen zu proprietären Systemen zu generieren. Es ist evident, dass eine nachhaltige Wettbewerbsfähigkeit ausschließlich durch modulare Erweiterbarkeit,
+fortlaufende Weiterentwicklung und die Implementierung standardkonformer Sicherheitsmechanismen gewährleistet werden kann.
+<BR>
+<BR>
+Diese Bachelorarbeit legt somit nicht nur ein spezifisches Softwareprodukt dar, sondern trägt darüber hinaus zur wissenschaftlichen Debatte bei, wie digitale Werkzeuge im
+Qualitätsmanagement praxisnah und benutzerorientiert konzipiert werden können, ohne die notwendige regulatorische Strenge zu kompromittieren.
+
+<P>
+
+<H1><A ID="SECTION001000000000000000000">
+Anhang</A>
+</H1>
+
+<P>
+
+<H1><A ID="SECTION001010000000000000000">
+SignButton-Plugin</A>
+</H1>
+
+<H2><A ID="SECTION001011000000000000000">
+Allgemeine Angaben zur Software</A>
+</H2>
+
+<H3><A ID="SECTION001011100000000000000">
+Beschreibung der Software</A>
+</H3>
+Das SignButton-Plugin ist ein Programm zur Bestätigung einer Schulungsmaßnahme oder anderer Maßnahmen in DokuWiki-Tabellen. Das Programm bietet die Möglichkeit,
+über Schaltflächen neben einer vordefinierten Tabelle zwei Spalten, einmal die Namensspalte und die Datumsspalte automatisch durch den angemeldeten Nutzer per Interaktion
+einzufügen. Zudem bietet das Programm eine Rückgängig-Schaltfläche, die automatisch neben einer signierten Reihe angezeigt wird und durch Interaktion
+den aktuellen Namen und das Datum löscht. Das Plugin benötigt zwingend die TableLib-Bibliothek und DokuWiki.
+
+<P>
+
+<H3><A ID="SECTION001011200000000000000">
+Anwendungsbereich, Einsatz und Funktion der Software</A>
+</H3>
+Im Institut der Medizinischen Informatik wird die Software verwendet, um Schulungsmaßnahmen oder weitere Maßnahmen automatisiert zu bestätigen.
+
+<P>
+
+<H3><A ID="SECTION001011300000000000000">
+GAMP-5 Softwarekategorie</A>
+</H3>
+<SPAN  CLASS="textbf">Ausgewählte Kategorie:</SPAN> 5- Eigenentwicklung
+
+<P>
+
+<H2><A ID="SECTION001012000000000000000">
+Risikoeinstufung der Risiken der Anwendung</A>
+</H2>
+Die Risikoeinstufung der angegebenen Risiken der Software wird nach dem in der Prozessbeschreibung: Validierung von Software angegebenen Schema vorgenommen.
+<BR><P></P>
+<DIV class="CENTER"><A ID="680"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+Risikoeinstufung SignButton-Plugin</CAPTION>
+<TR><TD> 
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">R#</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Risikobeschreibung</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Risikoeinstufung</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken Plugins werden nicht geladen</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R01</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>TableLib-Bibliothek wird nicht gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R02</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>SignButton-Plugin wird nicht geladen</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken Syntax wird nicht gefunden</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R03</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Keine <code>&lt;sign,n=x,d=y&gt;</code> Syntax wird vor einer oder mehreren Tabellen hinzugefügt</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R04</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Kein <code>&lt;/sign&gt;</code> Syntax nach einer oder mehreren Tabellen gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken bei Konfiguration</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R05</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsches Datumsformat wird konfiguriert</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken Rechte des Benutzers</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R06</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Benutzer ist nicht angemeldet</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Benutzer hat nicht die Rechte um eine Seite zu modifizieren</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken beim Signieren</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R08</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Nicht existierende Namensspalte wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R09</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Nicht existierende Datumsspalte wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R10</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsche Namensspalte wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R11</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsche Datumsspalte wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken beim Rückgängigmachen</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R12</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Datum wird nicht gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+
+<H2><A ID="SECTION001013000000000000000">
+Planung der Validierung</A>
+</H2>
+Aus der durchgeführten Risikoeinstufung ergibt sich die Notwendigkeit einer Validierung (siehe Prozessbeschreibung: Validierung von Software).
+<BR>
+<BR><SPAN  CLASS="textbf">Anforderungen an die Hardware:</SPAN> Es gibt keine speziellen Anforderungen. Die Validierung sollte an einem Arbeitsplatzrechner durchgeführt werden.
+<BR>
+<BR><SPAN  CLASS="textbf">Anforderungen an die Software:</SPAN> Es gibt eine spezielle Anforderung, die TableLib-Bibliothek. Die Validierung sollte mit der TableLib-Bibliothek v1.0
+durchgeführt werden.
+<BR><SPAN  CLASS="textbf">Folgende Schritte sind zur Validierung durchzuführen:</SPAN>
+<BR> -2.2cm
+ 
+<A ID="717"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table:</STRONG>
+Validierung SignButton-Plugin</CAPTION>
+<TR><TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">P#</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Überprüfung R#</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Vorgehen</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Erwartetes Ergebnis</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P01</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R01, R02, R06</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">Melden Sie sich im QMS-System als Admin ein und gehen Sie zu Admin/Erweiterungen verwalten.
+        <BR>- Fügen Sie das TableLib-Bibliothek Plugin als Plugin hinzu unter Manuell installieren, indem Sie die ZIP-Datei hochladen.
+        <BR>- Fügen Sie das SignButton-Plugin als Plugin hinzu unter Manuell installieren, indem Sie die Zip hochladen.
+    
+    <BR></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Es sollte eine Nachricht mit: Das Plugin tablelib wurde erfolgreich installiert
+        angezeigt werden.
+        <BR>- Es sollte eine weitere Nachricht mit: Das Plugin signbutton wurde erfolgreich installiert angezeigt werden.
+     </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P02</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R03, R04, R05, R06, R07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Bearbeiten Sie eine DokuWiki-Seite wo eine Tabelle vorhanden ist, indem Sie auf: Diese Seite bearbeiten drücken.
+        <BR>- Fügen Sie vor einer DokuWiki-Tabelle mit mindestens 3 Spalten ein <code>&lt;sign,n=1,d=2&gt;</code> hinzu.
+        <BR>- Fügen Sie nach einer DokuWiki-Tabelle mit mindestens 3 Spalten ein <code>&lt;/sign&gt;</code> hinzu.
+        <BR>- Drücken Sie auf Speichern, nachdem Sie beide Syntaxe hinzugefügt haben.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Neben jeder Reihe in der markierten Tabelle sollte rechts an letzter Stelle eine Schaltfläche zum Signieren sein.
+        <BR>- Wenn schon ein Datum in der Datumsspalte steht, sollte rechts neben der Reihe eine Rückgängig-Schaltfläche angezeigt werden statt der Schaltfläche zum Signieren.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P03</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R07, R10, R11</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Drücken Sie jetzt in der ersten Reihe auf Signieren.
+       <BR>- Drücken Sie danach in der ersten Reihe auf Rückgängig.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- In der Namensspalte sollte der Name vom gerade angemeldeten Benutzer stehen und in der Datumsspalte das aktuelle Datum.
+        <BR>- Nach dem Rückgängigkeitsdruck sollte die Namensspalte und die Datumsspalte leer sein.
+     </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P04</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R08, R09</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie jetzt wieder die Syntax wie in P02 und fügen Sie unter n eine Zahl ein, die größer ist als die Spaltenanzahl der Reihe.
+        <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+        <BR>- Ändern Sie jetzt wieder die Syntax wie in P02 und fügen Sie unter n die richtige Namenspalte ein und unter d eine Zahl, die größer ist als die Spaltenanzahl der Reihe.
+        <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfäche.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Es sollte die Fehlermeldung: Fehler: Namensspalte nicht gefunden angezeigt werden und sich nichts verändern.
+        <BR>- Es sollte danach die Fehlermeldung: Fehler: Datumsspalte nicht gefunden angezeigt werden und sich nichts verändern.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P05</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R05, R12</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie in der Einstellung unter Admin/Konfiguration/Plugin SignButton das 'plugin signbutton date pattern' in ein falsches, xxxx.
+        <BR>- Gehen Sie wieder zur Seite, wo die Tabelle ist.
+        <BR>- Drücken Sie in der ersten Reihe wieder auf Signieren, auch wenn da schon der Name und das Datum steht.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">
+    - Es sollte die Fehlermeldung Fehler: Falsches Datumsformat angezeigt werden und sich nichts verändern.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P06</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Melden Sie sich ab und melden Sie sich mit einem anderen Benutzer an, der keine Rechte hat, Seiten zu modifizieren.
+        <BR>- Führen Sie P03 wieder aus.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Sie sollten beide Male die Fehlermeldung: Fehler: Benutzer hat keine Berechtigung angezeigt bekommen.</SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H2><A ID="SECTION001014000000000000000">
+Durchführung der Validierung</A>
+</H2>
+<SPAN  CLASS="textbf">Verwendete Hardware:</SPAN> Die Validierung wurde auf dem Rechner Thinkpad X1 gen10 durchgeführt.
+<BR>
+<BR><P>
+<BR><P></P>
+<DIV class="CENTER"><A ID="729"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+Durchführung der Validierung des SignButton-Plugins</CAPTION>
+<TR><TD> 
+<TABLE class="PAD  BORDER" style="">
+<TR><TH CLASS="LEFT"><SPAN  CLASS="textbf">P#</SPAN></TH>
+<TH CLASS="CENTER"><SPAN  CLASS="textbf">Erwartetes Ergebnis bestätigt?</SPAN></TH>
+<TH CLASS="CENTER"><SPAN  CLASS="textbf">Abweichungen/Anmerkungen</SPAN></TH>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P01</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P02</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P03</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P04</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P05</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P06</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+
+<H2><A ID="SECTION001015000000000000000">
+Ergebnis der Validierung</A>
+</H2>
+
+<H3><A ID="SECTION001015100000000000000">
+Bewertung zur Nutzbarkeit</A>
+</H3>
+Das DokuWiki-Plugin SignButton-Plugin in Version 1.0 kann für den angegebenen Anwendungsbereich, Einsatz und Funktion der Software genutzt werden.
+
+<P>
+
+<H3><A ID="SECTION001015200000000000000">
+Geplanter Zeitpunkt der Revalidierung</A>
+</H3>
+Eine Revalidierung sollte nach 1 Jahr erfolgen (wie in der Prozessbeschreibung: Validierung von Software empfohlen).
+
+<P>
+
+<H1><A ID="SECTION001020000000000000000">
+CopyButton-Plugin</A>
+</H1>
+
+<H2><A ID="SECTION001021000000000000000">
+Allgemeine Angaben zur Software</A>
+</H2>
+
+<H3><A ID="SECTION001021100000000000000">
+Beschreibung der Software</A>
+</H3>
+Das CopyButton-Plugin ist ein Programm für das Kopieren von Schulungsmaßnahmen oder anderen Maßnahmen von einer DokuWiki-Tabelle in eine andere. Das Programm bietet
+die Möglichkeit, über Schaltflächen neben einer vordefinierten Tabelle, Reihen, ausgefüllt mit dem aktuellen Datum in eine andere Tabelle zu kopieren.
+Zudem bietet das Programm eine Rückgängigmach-Schaltfläche an die automatisch neben der kopierten Reihe angezeigt wird und durch Bestätigung
+die Reihe löscht oder optional wieder oben in der Kopiertabelle hinzufügt.
+
+<P>
+
+<H3><A ID="SECTION001021200000000000000">
+Anwendungsbereich, Einsatz und Funktion der Software</A>
+</H3>
+Im Institut der Medizinischen Informatik wird die Software verwendet, um Tabellenreihen automatisch mit dem aktuellen Datum ausgefüllt in eine andere Tabelle zu kopieren.
+
+<P>
+
+<H3><A ID="SECTION001021300000000000000">
+GAMP-5 Softwarekategorie</A>
+</H3>
+<SPAN  CLASS="textbf">Ausgewählte Kategorie:</SPAN> 5- Eigenentwicklung
+
+<P>
+
+<H2><A ID="SECTION001022000000000000000">
+Risikoeinstufung der Risiken der Anwendung</A>
+</H2>
+Die Risikoeinstufung der angegebenen Risiken der Software wird nach dem in der Prozessbeschreibung: Validierung von Software angegebenen Schema vorgenommen.
+
+<P>
+<BR><P></P>
+<DIV class="CENTER"><A ID="775"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+Risikoeinstufung CopyButton-Plugin</CAPTION>
+<TR><TD> 
+<TABLE class="PAD  BORDER" style="">
+<TR><TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">R#</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Risikobeschreibung</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Risikoeinstufung</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken Plugins werden nicht geladen</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R01</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>TableLib-Bibliothek wird nicht gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R02</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>CopyButton-Plugin wird nicht geladen</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken Syntax wird nicht gefunden</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R03</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Keine <code>&lt;copy,t=z,d=y,l=b&gt;</code> Syntax wird vor einer Tabelle hinzugefügt</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R04</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Keine <code>&lt;/copy&gt;</code> Syntax nach einer Tabelle gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken bei Konfiguration</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R05</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsches Datumsformat wird konfiguriert</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken Rechte des Benutzers</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R06</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Benutzer ist nicht angemeldet</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Benutzer hat nicht die Rechte um eine Seite zu modifizieren</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken beim Kopieren</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R08</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Kopier- und Einfügtabelle sind die gleichen</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R09</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Nicht existierende Kopiertabelle wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R10</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Nicht existierende Datumsspalte wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: absolut kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R11</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsche Kopiertabelle wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R12</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsche Datumsspalte wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R13</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsche Löschzahl wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT" COLSPAN=3><SPAN><SPAN  CLASS="textbf">Risiken beim Rückgängigmachen</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R14</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Datum wird nicht gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R15</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Ursprungstabelle wird nicht gefunden</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK1: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">R16</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>Falsche Löschzahl wird angegeben</TD>
+<TD CLASS="LEFT TOP"  WIDTH=363>RK2: kritisch</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+
+<H2><A ID="SECTION001023000000000000000">
+Planung der Validierung</A>
+</H2>
+Aus der durchgeführten Risikoeinstufung ergibt sich die Notwendigkeit einer Validierung (siehe Prozessbeschreibung: Validierung von Software).
+<BR>
+<BR><SPAN  CLASS="textbf">Anforderungen an die Hardware:</SPAN> Es gibt keine speziellen Anforderungen. Die Validierung sollte an einem Arbeitsplatzrechner durchgeführt werden.
+<BR>
+<BR><SPAN  CLASS="textbf">Anforderungen an die Software:</SPAN> Es gibt eine spezielle Anforderung, die TableLib-Bibliothek. Die Validierung sollte mit der TableLib-Bibliothek v1.0
+durchgeführt werden.
+<BR><SPAN  CLASS="textbf">Folgende Schritte sind zur Validierung durchzuführen:</SPAN>
+<BR><A ID="818"></A>
+<TABLE class="PAD  BORDER" style="">
+<CAPTION><STRONG>Table:</STRONG>
+Validierung CopyButton-Plugin</CAPTION>
+<TR><TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">P#</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Überprüfung R#</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Vorgehen</SPAN></SPAN></TD>
+<TD CLASS="CENTER" COLSPAN=1><SPAN><SPAN  CLASS="textbf">Erwartetes Ergebnis</SPAN></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P01</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R01, R02, R06</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">Melden Sie sich im QMS-System als Admin ein und gehen Sie zu Admin/Erweiterungen verwalten.
+        <BR>- Fügen Sie das TableLib-Bibliothek Plugin als Plugin hinzu unter Manuell installieren, indem Sie die Zip hochladen.
+        <BR>- Fügen Sie das CopyButton-Plugin als Plugin hinzu unter Manuell installieren, indem Sie die Zip hochladen.
+    
+    <BR></SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Es sollte eine Nachricht mit: Das Plugin tablelib wurde erfolgreich installiert
+        angezeigt werden.
+        <BR>- Es sollte eine weitere Nachricht mit: Das Plugin copybutton wurde erfolgreich installiert angezeigt werden.
+     </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P02</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R03, R04, R06, R07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Bearbeiten Sie eine DokuWiki-Seite, wo zwei Tabellen vorhanden sind, indem Sie auf: Diese Seite bearbeiten drücken.
+        <BR>- Fügen Sie vor der ersten DokuWiki-Tabelle mit mindestens 3 Spalten in einer Reihe ein <code>&lt;copy,t=1,d=1,l=0&gt;</code> hinzu, wobei d=1 die Datumsspalte indexiert.
+        <BR>- Fügen Sie nach der ersten DokuWiki-Tabelle mit mindestens 3 Spalten ein <code>&lt;/copy&gt;</code> hinzu.
+        <BR>- Drücken Sie auf Speichern nachdem Sie beide Syntaxe hinzugefügt haben.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Neben jeder Reihe in der markierten Tabelle sollte rechts an letzter Stelle eine Kopieren-Schaltfläche angezeigt werden.
+        <BR>- Wenn schon ein Datum in der Datumsspalte in der unteren Tabelle vorhanden ist, die mit t=z referenziert wurde, sollte rechts neben der Reihe eine Löschen-Schaltfläche angezeigt werden.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P03</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R07, R9, R10</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Drücken Sie jetzt in der ersten Reihe auf Kopieren.
+       <BR>- Danach drücken Sie in der unteren Tabelle auf Löschen.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- In der kopierten Reihe in der unteren Tabelle sollte in der Datumsspalte das aktuelle Datum stehen.
+        <BR>- Nach der Bestätigung sollte die Reihe aus der unteren Tabelle entfernt worden sein.
+     </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P04</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R08, R09, R10, R11, R12</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie jetzt wieder die Syntax wie in P02 und ändern Sie t = 0, damit die Kopiertabelle die Einfügtabelle ist
+        <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+        <BR>- Ändern Sie jetzt wieder die Syntax wie in P02 und fügen Sie t = 1 ein und unter d eine Zahl die größer ist als die Spaltenanzahl der Reihe.
+        <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+        <BR>- Ändern Sie jetzt wieder die Syntax wie in P02. Ändern Sie unter t = z die Zahl z die größer sein soll als die Anzahl der Tabellen. Dann ändern Sie d zu d=2.
+        <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Es sollte die Fehlermeldung: Fehler: Kopiertabelle und Einfügtabelle sind die gleichen angezeigt werden und sich nichts verändern.
+        <BR>- Es sollte danach die Fehlermeldung: Fehler: Datumsspalte nicht gefunden angezeigt werden und sich nichts verändern.
+        <BR>- Zuletzt sollte die Fehlermeldung: Fehler: Wiki konnte nicht modifiziert angezeigt werden und sich nichts verändern.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P05</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R13, R16</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie jetzt wieder die Syntax wie in P02 und ändern Sie n=0 (zu einem funktionierenden Wert) und d=1 (zu einem funktionierenden Wert) aber ändern Sie l, zu  l=3.
+    <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Es sollte die Fehlermeldung: Fehler: Falsche Eingabe angezeigt werden.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P06</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R08, R09</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie jetzt wieder die Syntax wie in P02 und fügen Sie unter n und d funktionierende Werte ein wie in P05 und ändern Sie l zu 1.
+    <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+    <BR>- Gehen Sie dann runter zur unteren Einfügetabelle und bestätigen Sie auf die Schaltfläche: Löschen.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Die Reihe sollte in die untere Tabelle kopiert worden sein und unter der Datumsspalte sollte das aktuelle Datum stehen. Rechts neben der Reihe sollte die Löschen-Schaltfläche erscheinen.
+    <BR>- In der oberen Kopiertabelle sollte die Reihe gelöscht worden sein.
+    <BR>- Nach der Bestätigung in der unteren Tabelle sollte die Reihe in der unteren Tabelle gelöscht worden sein und oben in der Einfügtabelle als erstes in der Tabelle eingefügt worden sein.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R08, R09</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie jetzt wieder die Syntax wie in P02 und fügen Sie unter n und d funktionierende Werte ein wie in P05 und ändern Sie l zu 2.
+    <BR>- Drücken Sie dann in der Reihe auf die Signieren-Schaltfläche.
+    <BR>- Gehen Sie dann runter zur unteren Einfügetabelle und drücken Sie auf die Schaltfläche: Löschen.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Die Reihe sollte in die untere Tabelle kopiert worden sein und unter der Datumsspalte sollte das aktuelle Datum stehen. Rechts neben der Reihe sollte die Schaltfläche: Löschen erscheinen.
+    <BR>- In der oberen Kopiertabelle sollte die Reihe gelöscht worden sein.
+    <BR>- Nach der Bestätigung in der unteren Tabelle sollte die Reihe in der unteren Tabelle gelöscht worden sein und unten in der Einfügtabelle als letzte Spalte in der Tabelle eingefügt worden sein.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P08</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R05, R14</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie in der Einstellung unter Admin/Konfiguration/Plugin CopyButton das 'plugin copybutton date pattern' in ein falsches, zum Beispiel xxxx.
+        <BR>- Gehen Sie wieder zur Seite, wo die Tabelle ist.
+        <BR>- Drücken Sie in der ersten Reihe wieder auf Kopieren.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">
+    - Es sollte die Fehlermeldung Fehler: Falsches Datumsformat angezeigt werden und sich nichts verändern.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P09</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R07</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Melden Sie sich ab und melden Sie sich mit einem anderen Benutzer an, der keine Rechte hat, Seiten zu modifizieren.
+        <BR>- Führen Sie P03 wieder aus.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Sie sollten beide Male die Fehlermeldung: Fehler: Benutzer hat keine Berechtigung angezeigt bekommen.</SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P10</TD>
+<TD CLASS="LEFT TOP"  WIDTH=29>R14, R15</TD>
+<TD CLASS="LEFT TOP"  WIDTH=145><SPAN CLASS="FOOTNOTESIZE">- Ändern Sie die Syntax wieder zu einer funktionierenden wie in P2, aber setzen Sie l=1.
+        <BR>- Drücken Sie dann auf Kopieren
+        <BR>- Ändern Sie dann in der Syntax den Wert t zu t=10, also zu einem Wert der nicht zulässig ist.
+        <BR>- Gehen Sie dann runter zur Hinzufügtabelle und drücken Sie auf die Schaltfläche: Löschen.
+        <BR>- Ändern Sie dann die Syntax wieder um, indem Sie den Wert d=10 setzen, also zu einem nicht zulässigen Wert, aber t zu einem zulässigen Wert setzen, zum Beispiel 1.
+        <BR>- Drücken Sie dann wieder auf Löschen.
+    
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218><SPAN CLASS="FOOTNOTESIZE">- Sie sollten unten bei der Hinzufügetabelle die kopierte Reihe mit dem aktuellen Datum in der Datumsspalte sehen. Rechts daneben sollte die Löschen-Schaltfläche sein.
+    <BR>- Nach der Änderung zu l=10 (einen nicht zulässigen Wert) sollte keine Lösch-Schaltfläche mehr rechts sein.
+    <BR>- Nach der Änderung zu l=1 (einen korrekten Wert) und d=10 (einem nicht zulässigen Wert) sollte eine Lösch-Schaltfläche rechts neben der kopierten Spalte sein.
+    <BR>- Nachdem Sie dann auf Löschen gedrückt haben, sollte die Reihe gelöscht und oben in der Kopiertabelle hinzugefügt worden sein.
+    </SPAN></TD>
+<TD CLASS="LEFT TOP"  WIDTH=218>&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+
+<P>
+
+<H2><A ID="SECTION001024000000000000000">
+Durchführung der Validierung</A>
+</H2>
+<SPAN  CLASS="textbf">Verwendete Hardware:</SPAN> Die Validierung wurde auf dem Rechner Thinkpad X1 gen10 durchgeführt.
+<BR>
+<BR><P>
+<BR><P></P>
+<DIV class="CENTER"><A ID="830"></A>
+<TABLE>
+<CAPTION><STRONG>Table:</STRONG>
+Durchführung der Validierung des CopyButton-Plugins</CAPTION>
+<TR><TD> 
+<TABLE class="PAD  BORDER" style="">
+<TR><TH CLASS="LEFT"><SPAN  CLASS="textbf">P#</SPAN></TH>
+<TH CLASS="CENTER"><SPAN  CLASS="textbf">Erwartetes Ergebnis bestätigt?</SPAN></TH>
+<TH CLASS="CENTER"><SPAN  CLASS="textbf">Abweichungen/Anmerkungen</SPAN></TH>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P01</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P02</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P03</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P04</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P05</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P06</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P07</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P08</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P09</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+<TR><TD CLASS="LEFT">P10</TD>
+<TD CLASS="CENTER">Ja</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="CENTER">&nbsp;</TD>
+<TD CLASS="LEFT">&nbsp;</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+
+<H2><A ID="SECTION001025000000000000000">
+Ergebnis der Validierung</A>
+</H2>
+
+<H3><A ID="SECTION001025100000000000000">
+Bewertung zur Nutzbarkeit</A>
+</H3>
+Das DokuWiki-Plugin CopyButton-Plugin in Version 1.0 kann für den angegebenen Anwendungsbereich, Einsatz und Funktion der Software genutzt werden.
+
+<P>
+
+<H3><A ID="SECTION001025200000000000000">
+Geplanter Zeitpunkt der Revalidierung</A>
+</H3>
+Eine Revalidierung sollte nach 1 Jahr erfolgen (wie in der Prozessbeschreibung: Validierung von Software empfohlen).
+
+<P>
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>
